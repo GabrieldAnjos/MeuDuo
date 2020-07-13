@@ -1,0 +1,248 @@
+.preCadastro-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-image:   url('../assets/montanha1.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: auto;
+}
+
+.preCadastro-container .esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    min-width: 780px;
+    width: 780px;
+    background: rgba(255, 255, 255, 0.75);
+    overflow: auto;
+}
+
+.preCadastro-container .esquerda h1 {
+    font-size: 44px;
+    font-weight: 300;
+}
+.preCadastro-container .esquerda h4 {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.preCadastro-container .esquerda h1, h4 {
+    margin-bottom: 25px;
+    color: #3D405B;
+}
+
+.preCadastro-container .esquerda p {
+    max-width: 55%;
+    padding: 20px 10px 10px 10px;
+    margin-bottom: 20px;
+    color: #3D405B;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: Point Soft DEMO;
+}
+
+.preCadastro-container .esquerda form {
+    width: 85%;
+    min-width: 335px;
+}
+
+.preCadastro-container .esquerda  input, textarea, select {
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px;  
+}
+
+.preCadastro-container .esquerda  textarea {
+    height: 110px;
+    margin-top: 20px;
+    resize: none;
+}
+
+.preCadastro-container .esquerda  #idade {
+    display: flex;
+    width: 128px;
+    align-self: flex-start;
+}
+
+.preCadastro-container .esquerda  button {
+    width: 128px;
+    height: 58px;
+    border: 5px solid rgba(0, 135, 211, .8);
+    box-sizing: border-box;
+    border-radius: 36px;
+    font-family: Rubik;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(0, 135, 211, .8);
+    cursor:pointer;
+}
+
+.preCadastro-container .esquerda #afirmacoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.preCadastro-container .esquerda  #rate:not(:checked) > label {
+    cursor:pointer;
+    float: right;
+    width: 31px;
+    height: 30px;
+    display: block;  
+    color: rgba(119, 140, 153, 0.4);
+    line-height: 33px;
+    text-align: center; 
+ }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(187, 187, 187, 0.7);
+    opacity: 1; /* Firefox */
+  }
+
+.preCadastro-container .esquerda .rating { 
+    width: 200px;
+    height: 50px;
+    padding: 10px 20px;
+    margin: auto;
+    border-radius: 30px;
+    background: #FFF;
+    display: block;
+    overflow: hidden; 
+    box-shadow: 0 1px #CCC,
+                0 5px #DDD,
+                0 9px 6px -3px #999;  
+    unicode-bidi: bidi-override;
+    direction: rtl; 
+}
+
+.preCadastro-container .esquerda  .rating:not(:checked) > input {
+    display: none;
+}
+  
+  /* - - - - - RATE */
+.preCadastro-container .esquerda  #rate {
+    top: -65px;
+    font-size: 35px;  
+}
+
+.preCadastro-container .esquerda  #rate:not(:checked) > label {
+   cursor:pointer;
+   float: right;
+   width: 31px;
+   height: 30px;
+   display: block;
+   color: rgba(119, 140, 153, 0.4);
+   line-height: 33px;
+   text-align: center;
+}
+
+.preCadastro-container .esquerda #rate:not(:checked) > label:hover,
+.preCadastro-container .esquerda  #rate:not(:checked) > label:hover ~ label {
+   color: rgba(0, 135, 211, .6);
+}
+.preCadastro-container .esquerda  #rate > input:checked + label:hover,
+.preCadastro-container .esquerda  #rate > input:checked + label:hover ~ label,
+.preCadastro-container .esquerda  #rate > input:checked ~ label:hover,
+.preCadastro-container .esquerda  #rate > input:checked ~ label:hover ~ label,
+.preCadastro-container .esquerda  #rate > label:hover ~ input:checked ~ label {
+   color: rgba(0, 135, 211, .8);
+}
+.preCadastro-container .esquerda  #rate > input:checked ~ label {
+   color: rgb(0, 135, 211);
+}
+
+@media (max-width: 780px){
+    .preCadastro-container .esquerda {
+        min-width: 100%;
+
+    }
+
+    .preCadastro-container .esquerda p {
+        max-width: 90%;
+        padding: 10px 5px 5px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        color: #3D405B;
+        font-weight: 600;    
+    }
+    .preCadastro-container .esquerda h1, h4 {
+        margin-bottom: 5px;
+    }
+    
+    .preCadastro-container .esquerda #afirmacoes {
+        
+        flex-direction: column;
+             
+    }
+}
+
+.preCadastro-container .direita {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    align-items: center;   
+    overflow: hidden;
+}
+
+.preCadastro-container img{
+    margin: 10px;
+}
+.preCadastro-container .direita #intro {
+    min-width: 75%;
+}
+
+.preCadastro-container .direita header {
+    height: 29%;
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.preCadastro-container .direita main {
+    height: 54%;
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.preCadastro-container .direita #logo { 
+    min-width: 60%;
+}
+
+.preCadastro-container .direita footer  {
+    height: 17%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.preCadastro-container .direita footer #parceiros {
+    width: 383px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px 30px 0px 0px;
+    padding: 10px; 
+    margin-left: 40px;
+}
+
+
+

@@ -1,0 +1,663 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    outline: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+
+html, body {
+
+    height: 100%;
+
+}
+
+
+
+body {
+
+    background: whitesmoke;
+
+}
+
+body, input, button {
+
+    font-family: 'Quicksand', Helvetica, sans-serif;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.preCadastro-container {
+
+    display: flex;
+
+    height: 100%;
+
+    width: 100%;
+
+    background-image:   url('../assets/backgroundLink.jpg');
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    background-size: cover;
+
+    overflow: auto;
+
+}
+
+
+
+.preCadastro-container img{
+
+    margin: 2px;
+
+}
+
+
+
+.preCadastro-container .esquerda {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px 20px 0 20px;
+
+    height: 100%;
+
+    width: 40vw;
+
+    min-width: 40vw;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    overflow: auto;
+
+}
+
+
+
+
+.preCadastro-container .esquerda h1 {
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+}
+
+.preCadastro-container .esquerda h4 {
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+}
+
+
+
+.preCadastro-container .esquerda h1, h4 {
+
+    margin-bottom: 15px;
+
+    color: #3D405B;
+
+    font-family: 'Ubuntu', Helvetica, sans-serif;
+
+}
+
+
+
+.preCadastro-container .esquerda p {
+
+    max-width: 55%;
+
+    padding: 20px 10px 10px 10px;
+
+    margin-bottom: 20px;
+
+    color: #3D405B;
+
+    font-weight: 600;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+}
+
+
+
+.preCadastro-container .esquerda form {
+
+    width: 85%;
+
+    min-width: 335px;
+
+}
+
+
+
+.preCadastro-container .esquerda  input, textarea, select {
+
+    width: 100%;
+
+    height: 50px;
+
+    background: #FFFFFF;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    box-sizing: border-box;
+
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+
+    font-size: 18px;
+
+    padding: 10px;  
+
+    transition: all 0.40s ease-in-out;
+
+}
+
+
+
+.preCadastro-container .esquerda  textarea {
+
+    height: 110px;
+
+    margin-top: 20px;
+
+    resize: none;
+
+}
+
+.preCadastro-container .esquerda input:focus, textarea:focus {
+    box-shadow: 0 1px 5px rgba(81, 203, 238, 0.6);
+    border: 1px solid rgba(81, 203, 238, 0.6);
+}
+
+.preCadastro-container .esquerda input.error {
+    box-shadow: 0 1px 5px rgba(204, 20, 20, 0.6);
+    border: 1px solid rgba(204, 20, 20, 0.6);
+}
+
+
+
+.preCadastro-container .esquerda  #idade {
+
+    display: flex;
+
+    width: 128px;
+
+    align-self: flex-start;
+
+}
+
+
+.preCadastro-container .esquerda .curtaindown_blocked{
+    color: black; /* button text color */
+    outline: none;
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    border-bottom: 4px solid #eee;
+    letter-spacing: 3px;
+    padding: 8px 10px; 
+    text-transform: uppercase;
+    font: bold 18px 'Ubuntu', Helvetica, sans-serif; /* use google font */
+    line-height: 2;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none; /* remove underline if using A instead of BUTTON tag */
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 0;
+    width: 150px;
+    background: rgba(104, 164, 199, 0.5); /* button default background color */
+    cursor: not-allowed;
+  }
+
+
+.preCadastro-container .esquerda .curtaindown{
+    color: black; /* button text color */
+    outline: none;
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    border-bottom: 4px solid #eee;
+    letter-spacing: 3px;
+    padding: 8px 10px; 
+    text-transform: uppercase;
+    font: bold 18px 'Ubuntu', Helvetica, sans-serif; /* use google font */
+    line-height: 2;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none; /* remove underline if using A instead of BUTTON tag */
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 0;
+    width: 150px;
+    background: rgba(0, 135, 211, .4); /* button default background color */
+  }
+  
+  
+.preCadastro-container .esquerda .curtaindown:before{
+
+    transform: translate3D(0,0,0);
+}
+
+.preCadastro-container .esquerda .curtaindown:hover{
+    color: white;
+}
+
+
+.preCadastro-container .esquerda .curtaindown:before,
+.preCadastro-container .esquerda .curtaindown:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(0, 135, 211); /* onhover background color */
+    z-index: -1;
+    transform: translate3D(0,-100%,0); /* move elements above button so they don't appear initially */
+    transition: all .5s;
+}
+
+.preCadastro-container .esquerda .curtaindown:after{
+    transform: translate3D(0,100%,0);
+}
+
+.preCadastro-container .esquerda .curtaindown:hover:before,
+.preCadastro-container .esquerda .curtaindown:hover:after{
+    transform: translate3D(0,-50%,0);
+    transition: all .5s;
+}
+
+.preCadastro-container .esquerda .curtaindown:hover:after{
+    transform: translate3D(0,50%,0);
+}
+
+  /* //// Default effect: Slide from Top  //// */
+
+
+
+.preCadastro-container .esquerda #afirmacoes {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+
+}
+
+
+
+.preCadastro-container .esquerda  .rating:not(:checked) > label {
+
+    cursor:pointer;
+
+    float: right;
+
+    width: 31px;
+
+    height: 30px;
+
+    display: block;  
+
+    color: rgba(119, 140, 153, 0.4);
+
+    line-height: 33px;
+
+    text-align: center; 
+
+}
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    color: rgba(187, 187, 187, 0.7);
+
+    opacity: 1; /* Firefox */
+
+  }
+
+
+
+.preCadastro-container .esquerda .rating { 
+
+    width: 200px;
+
+    height: 50px;
+
+    padding: 10px 20px;
+
+    margin: auto;
+
+    border-radius: 30px;
+
+    background: #FFF;
+
+    display: block;
+
+    overflow: hidden; 
+
+    box-shadow: 0 1px #CCC,
+
+                0 5px #DDD,
+
+                0 9px 6px -3px #999;  
+
+    unicode-bidi: bidi-override;
+
+    direction: rtl; 
+
+}
+
+
+
+.preCadastro-container .esquerda  .rating:not(:checked) > input {
+
+    display: none;
+
+}
+
+  
+
+  /* - - - - - RATE */
+
+.preCadastro-container .esquerda  .rating {
+
+    top: -65px;
+
+    font-size: 35px;  
+
+}
+
+
+
+.preCadastro-container .esquerda  .rating > label {
+
+   cursor:pointer;
+
+   float: right;
+
+   width: 31px;
+
+   height: 30px;
+
+   display: block;
+
+   color: rgba(119, 140, 153, 0.4);
+
+   line-height: 33px;
+
+   text-align: center;
+
+}
+
+
+
+.preCadastro-container .esquerda .rating > label:hover,
+
+.preCadastro-container .esquerda  .rating > label:hover ~ label {
+
+   color: rgba(0, 135, 211, .6);
+
+}
+
+.preCadastro-container .esquerda  .rating > input:checked + label:hover,
+
+.preCadastro-container .esquerda  .rating > input:checked + label:hover ~ label,
+
+.preCadastro-container .esquerda  .rating > input:checked ~ label:hover,
+
+.preCadastro-container .esquerda  .rating > input:checked ~ label:hover ~ label,
+
+.preCadastro-container .esquerda  .rating > label:hover ~ input:checked ~ label {
+
+   color: rgba(0, 135, 211, .8);
+
+}
+
+.preCadastro-container .esquerda  .rating > input:checked ~ label {
+
+   color: rgb(0, 135, 211);
+
+}
+
+
+@media (max-width: 1450px){
+
+    .preCadastro-container .esquerda {
+
+        width: 45vw;
+
+        min-width: 45vw;
+
+    }
+
+    .preCadastro-container .esquerda p {
+
+        min-width: 90%;
+
+        padding: 10px 5px 5px;
+
+        margin-top: 10px;
+
+        margin-bottom: 0;
+
+        color: #3D405B;
+
+        font-weight: 600;    
+
+    }
+
+    .preCadastro-container .esquerda h1, h4 {
+
+        margin-bottom: 5px;
+
+    }
+
+    
+
+    .preCadastro-container .esquerda #afirmacoes {
+
+        
+
+        flex-direction: column;
+
+             
+
+    }
+
+    .preCadastro-container .esquerda form {
+
+        width: 95%;
+
+      
+
+    }
+
+}
+
+
+
+@media (max-width: 780px){
+
+    .preCadastro-container .esquerda {
+
+        min-width: 100%;
+
+
+
+    }
+
+}
+
+
+
+
+
+
+
+.preCadastro-container .direita {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    height: 100%;
+
+    align-items: center;   
+
+    overflow: hidden;
+
+}
+
+
+
+.preCadastro-container .direita h1, h4 {
+
+    
+
+    color: #3D405B;
+
+    font-size: 36px;
+
+    font-weight: 300;
+
+    font-family: Ubuntu;
+
+}
+
+
+
+
+
+.preCadastro-container .direita #intro {
+
+    min-width: 75%;
+
+    width: 75%;
+
+}
+
+
+
+.preCadastro-container .direita header {
+
+    height: 29%;
+
+    padding-top: 20px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.preCadastro-container .direita main {
+
+    height: 54%;
+
+    padding-top: 10px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.preCadastro-container .direita #logo { 
+
+    min-width: 55%;
+
+    width: 55%;
+
+}
+
+
+
+.preCadastro-container .direita footer  {
+
+    height: 17%;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+}
+
+
+
+.preCadastro-container .direita footer #parceiros {
+
+    width: 383px;
+
+    height: 160px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border-radius: 30px 30px 0px 0px;
+
+    padding: 5px; 
+
+    margin-left: 40px;
+
+}
+
+
+
+
+
+
+

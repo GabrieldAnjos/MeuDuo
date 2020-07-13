@@ -1,0 +1,212 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    outline: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+
+html, body {
+
+    height: 100%;
+
+}
+
+
+
+body {
+
+    background: whitesmoke;
+
+}
+
+
+
+body, input, button {
+
+    font-family: 'Quicksand', Helvetica, sans-serif;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.preCadastro-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    height: 100%;
+
+    background-image:   url('../assets/backgroundLink.jpg');
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    background-size: cover;
+
+}
+
+
+
+.preCadastro-container #autorImg{
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+   
+
+}
+
+
+
+.preCadastro-container img{
+
+    margin: 2px;
+
+}
+
+
+
+.preCadastro-container h1, h4 {
+
+    
+
+    color: #3D405B;
+
+    font-size: 36px;
+
+    font-weight: 300;
+
+    font-family: Ubuntu;
+
+}
+
+
+
+
+
+.preCadastro-container #intro {
+
+    min-width: 350px;
+
+    width: 50%;
+
+}
+
+
+
+.preCadastro-container  header {
+
+    height: 20%;
+
+    padding-top: 20px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.preCadastro-container  main {
+
+    height: 50%;
+
+    padding-top: 10px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.preCadastro-container  #logo { 
+
+    min-width: 300px;
+
+    width: 35%;
+
+}
+
+
+
+.preCadastro-container  footer  {
+
+    height: 30%;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+}
+
+
+
+.preCadastro-container  footer #parceiros {
+
+    width: 383px;
+
+    height: 170px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border-radius: 30px 30px 0px 0px;
+
+    padding: 5px; 
+
+}
+
+
+
+@media (max-width: 1150px){
+
+    .preCadastro-container #intro {
+
+        
+
+            src: "../assets/conclusaoIntro.svg";
+
+
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

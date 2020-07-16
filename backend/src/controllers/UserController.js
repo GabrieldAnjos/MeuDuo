@@ -76,5 +76,49 @@ module.exports = {
 
 
         return res.json(user);
+    },
+
+    async update(req, res) {
+      
+        const { username, summonerName, email, instagram, idade } = req.body;
+
+        const userExists = await User.findOne({ 
+            $and: [
+                { username },
+                { _id: { $ne: req.userId } },
+            ],
+        });
+
+        if (userExists) {
+            console.log('User already exists');
+            return res.json(userExists);
+        }
+
+        //Riot API
+
+        const { id, name, profileIconId, summonerLevel } = await kayn.Summoner.by.name(summonerName);
+        const league = await kayn.League.Entries.by.summonerID(id);
+
+        league.map(({queueType,tier,rank}) => ({queueType,tier,rank}));
+
+        //Instagram Api
+
+        const response = await axios.get(`https://www.instagram.com/${instagram}/?__a=1`);
+        const { profile_pic_url, username: userInstagram } = response.data.graphql.user;
+        
+
+        const user = await User.findByIdAndUpdate(req.userId, {
+            username,
+            email,
+            summonerName: name,
+            profileIconId,
+            summonerLevel,
+            league,
+            avatarInstagram: profile_pic_url,
+            userInstagram,
+            idade
+        }, {useFindAndModify: false});
+
+        return res.json(user);
     }
 };

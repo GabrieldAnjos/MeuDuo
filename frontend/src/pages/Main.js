@@ -31,7 +31,7 @@ export default function Main({ match, history }) {
 
     useEffect(() => {
         async function loadUsers() {
-            const response = await api.get('/user', {
+            const response = await api.get('/user/list', {
                 headers: {
                     authorization: token,
                 }
@@ -98,6 +98,7 @@ export default function Main({ match, history }) {
             },
         })
 
+       
         setUsers(users.filter(user => user._id !== invocadorId));
     }
 

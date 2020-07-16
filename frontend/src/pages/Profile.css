@@ -1,169 +1,110 @@
-.main-container {
+.profile-container {
     max-width: 980px;
     margin: 0 auto;
     padding: 50px 0;
     text-align:  center;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, Arial, sans-serif;
+    align-items: center;
 }
 
-.main-container .logo {
+.profile-container .logo {
     height: 100px;
 }
 
-.main-container ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    margin-top: 50px;
-}
-
-.main-container ul li {
+.profile-container footer {
     display: flex;
     flex-direction: column;
-}
-
-.main-container ul li .emblem-div {
-    display: flex;
-    flex-direction: row;
-}
-
-.main-container ul li .emblem-div div {
-    margin: 10px;
-}
-
-div.tier-name{
-    text-align: center;
-    font-size: 18px;
-    color: #333;
-}
-
-.main-container ul li img.emblem {
-    width: 100px;
-    height: 110px;
-    align-self: center;
-    border-radius: 5px 5px 0 0;
-}
-
-.main-container .emblem-mode {
-    flex: 1;
-    text-align: center;
-}
-
-.main-container ul li img.icon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 5px;
-}
-
-.main-container ul li footer {
+    width: 350px;
     flex: 1;
     background: #fff;
     border: 1px solid #eee;
     padding: 15px 20px;
     text-align: left;
     border-radius: 0 0 5px 5px;
+    margin-top: 15px;
+    
 }
 
-.main-container ul li footer strong {
+.profile-container footer .emblem-div div {
+    margin: 10px;
+}
+
+.profile-container footer .emblem-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-container footer .emblem-div .emblem-mode .tier-name{
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.profile-container footer img.emblem {
+    width: 100px;
+    height: 110px;
+    align-self: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.profile-container .emblem-mode {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-container footer img.icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.profile-container footer img.icon.small {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.profile-container footer strong {
     font-size: 16px;
     color: #333;
 }
 
-.main-container ul li footer p {
+.profile-container footer p {
     font-size: 14px;
     line-height: 20px;
     color: #999;
 }
 
-.main-container ul li .buttons {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-}
-
-.main-container ul li .buttons button {
-    height: 50px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
-    border: 0;
-    border-radius: 4px;
-    background: #fff;
-    cursor: pointer;
-}
-
-.main-container ul li .buttons button:hover img {
-    transform: translateY(-5px);
-    transition: all 0.2s;
-}
-
-.main-container .empty {
-    font-size: 32px;
-    color: #999;
-    font-weight: bold;
-    margin-top: 300px;
-}
-
-.main-container .infoUsers {
+.profile-container .infoUsers {
     display: flex;
     flex-direction: row;
 }
 
-.main-container .infoLol {
+.profile-container .infoUsers .infoLol {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
 }
 
-.main-container .infoInsta {
+.profile-container .infoUsers .infoInsta {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
 }
 
-.match-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.match-container .avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    margin: 30px 0;
-}
-
-.match-container strong {
-    font-size: 32px;
-    color: #fff;
-}
-
-.match-container p {
+.profile-container .editar {
     margin-top: 10px;
-    font-size: 20px;
-    line-height: 30px;
-    max-width: 400;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.match-container button {
     border: 0;
-    background: none;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 18px;
-    margin-top: 30px;
+    border-radius: 4px;
+    height: 48px;
+    font-size: 16px;
+    background: rgb(44, 97, 128);
+    color: #fff;
     cursor: pointer;
+    width: 120px;
 }
-
 

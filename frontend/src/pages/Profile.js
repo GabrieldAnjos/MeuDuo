@@ -60,24 +60,22 @@ export default function Profile({ match, history }) {
 
 
     return (
-        <div className="main-container">
+        <div className="profile-container">
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
-            <ul>
-                <li>
-                    {/* temporário, pular uma coluna */}
-                </li>
-                <li>
+            
                     <footer>
                         <div className="emblem-div">
                             <div className="emblem-mode">
+                                <p>Solo</p>
                                 <img className="emblem" src={emblemURL(users.emblems.RANKED_SOLO_5x5.tier)} alt={users.emblems.RANKED_SOLO_5x5.tier} />
                                 <div className="tier-name" >
                                     {users.emblems.RANKED_SOLO_5x5.tier} {users.emblems.RANKED_SOLO_5x5.rank}
                                 </div>
                             </div>
                             <div className="emblem-mode">
+                                <p>Flex</p>
                                 <img className="emblem" src={emblemURL(users.emblems.RANKED_FLEX_SR.tier)} alt={users.emblems.RANKED_FLEX_SR.tier} />
                                 <div className="tier-name">
                                     {users.emblems.RANKED_FLEX_SR.tier} {users.emblems.RANKED_FLEX_SR.rank}
@@ -98,8 +96,8 @@ export default function Profile({ match, history }) {
                             </div>
                         </div>
                     </footer>
-                </li>
-            </ul>
+                    <button onClick={() => history.push(`/editProfile/${match.params.token}`)} className="editar">Editar Perfil</button>
+                    
         </div>
     )
 }

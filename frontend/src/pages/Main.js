@@ -3,6 +3,8 @@ import io from 'socket.io-client';
 import { Link } from 'react-router-dom';
 import './Main.css';
 
+import { useDataLogin } from '../context/DataLogin';
+
 import api from '../services/api';
 
 import logo from '../assets/logo.svg';
@@ -27,13 +29,16 @@ export default function Main({ match, history }) {
     const [matches, setMatches] = useState([]);
     const [matchUser, setMatchUser] = useState(null);
 
-    const token = "Bearer ".concat(match.params.token);
+    const { authentication } = useDataLogin();
+    
+    console.log(authentication.token);
+    //const authentication.token = "Bearer ".concat(match.params.authentication.token);
 
     useEffect(() => {
         async function loadUsers() {
             const response = await api.get('/user/list', {
                 headers: {
-                    authorization: token,
+                    authorization: authentication.token,
                 }
 
             })
@@ -63,14 +68,14 @@ export default function Main({ match, history }) {
         loadUsers();
 
         
-    }, [match.params.id, token]);
+    }, [authentication]);
 
     
     useEffect(() => {
         async function loadMatches() {
             const mat = await api.get('/user/matches', {
                 headers: {
-                    authorization: token,
+                    authorization: authentication.token,
                 }
             })
             //console.log(mat.data);
@@ -78,23 +83,23 @@ export default function Main({ match, history }) {
         }
         loadMatches();
 
-    },[match.params.id, token]);
+    },[authentication, matchUser]);
 
     useEffect(() => {
         const socket = io('http://localhost:3333', {
-            query: { user: match.params.id }
+            query: { user: authentication.idUser }
         });
 
         socket.on('match', invocador => {
             setMatchUser(invocador);
         })
 
-    }, [match.params.id]);
+    }, [authentication]);
 
     async function handleLike(invocadorId) {
         await api.post(`user/${invocadorId}/likes`, null, {
             headers: {
-                authorization: token,
+                authorization: authentication.token,
             },
         })
 
@@ -105,7 +110,7 @@ export default function Main({ match, history }) {
     async function handleDislike(invocadorId) {
         await api.post(`user/${invocadorId}/dislikes`, null, {
             headers: {
-                authorization: token,
+                authorization: authentication.token,
             },
         })
 
@@ -117,7 +122,7 @@ export default function Main({ match, history }) {
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
-            <button onClick={() => history.push(`/profile/${token}`)}>Meu Perfil</button>
+            <button onClick={() => history.push('/profile')}>Meu Perfil</button>
             {users.length > 0 ? (
                 <ul>
                     {users.map(user => (

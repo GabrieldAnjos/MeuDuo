@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useDataLogin } from '../context/DataLogin';
+
 import './EditProfile.css';
 
 import api from '../services/api';
@@ -9,6 +11,8 @@ import logo from '../assets/logo.svg';
 
 
 export default function EditProfile({ history, match }) {
+    const { authentication } = useDataLogin();
+
     const[form, setForm] = useState({
         username: '',
         summonerName: '',
@@ -21,7 +25,7 @@ export default function EditProfile({ history, match }) {
         async function loadUser() {
             const user = await api.get('/user/profile', {
                 headers: {
-                    authorization: match.params.token,
+                    authorization: authentication.token,
                 }
             });
             
@@ -30,7 +34,7 @@ export default function EditProfile({ history, match }) {
         }
         loadUser();
        
-    }, [match.params.token]);
+    }, [authentication]);
 
   
 
@@ -48,12 +52,12 @@ export default function EditProfile({ history, match }) {
         },
         {
             headers: {
-                authorization: match.params.token,
+                authorization: authentication.token,
             }
         });
 
         
-        history.push(`/profile/${match.params.token}`);
+        history.push('/profile');
       
         
         

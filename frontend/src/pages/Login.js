@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './Login.css';
 
+import { useDataLogin } from '../context/DataLogin';
+
 import api from '../services/api';
 
 import logo from '../assets/logo.svg';
 
 
 export default function Login({ history }) {
-
+    const { authentication, setAuthentication } = useDataLogin();
     
     const[form, setForm] = useState({username: '', password: ''});
 
@@ -21,8 +23,14 @@ export default function Login({ history }) {
         });
 
         const { token, _id } = response.data;
-        console.log(response.data);
-        history.push(`/user/${_id}/${token}`);
+
+        setAuthentication({
+            token: "Bearer ".concat(token),
+            idUser:_id
+        });
+        
+        console.log(authentication);
+        history.push('/user');
     }
     
     async function handleClickCadastrar(e){

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
+import { useDataLogin } from '../context/DataLogin';
+
 import api from '../services/api';
 import logo from '../assets/logo.svg';
 
@@ -19,6 +21,8 @@ function emblemURL(tierName) {
 }
 
 export default function Profile({ match, history }) {
+    const { authentication } = useDataLogin();
+
     const [users, setUsers] = useState({
         emblems: {
             RANKED_SOLO_5x5: {},
@@ -31,7 +35,7 @@ export default function Profile({ match, history }) {
         async function loadUsers() {
             const response = await api.get('/user/profile', {
                 headers: {
-                    authorization: match.params.token,
+                    authorization: authentication.token,
                 }
             });
             //cria um objeto para acessar diretamente os dados do elo
@@ -56,7 +60,7 @@ export default function Profile({ match, history }) {
         }
 
         loadUsers();
-    }, [match.params.token]);
+    }, [authentication]);
 
 
     return (
@@ -96,7 +100,7 @@ export default function Profile({ match, history }) {
                             </div>
                         </div>
                     </footer>
-                    <button onClick={() => history.push(`/editProfile/${match.params.token}`)} className="editar">Editar Perfil</button>
+                    <button onClick={() => history.push('/editProfile')} className="editar">Editar Perfil</button>
                     
         </div>
     )

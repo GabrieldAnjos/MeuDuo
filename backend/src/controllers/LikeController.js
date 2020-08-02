@@ -2,7 +2,7 @@ const User = require('../models/User');
 
 module.exports = {
     async store(req, res) {
-        
+
         const userId = req.userId;
         const { invocadorId } = req.params;
 
@@ -14,6 +14,7 @@ module.exports = {
         }
 
         if (targetUser.likes.includes(loggedUser._id)) {
+
 
             loggedUser.matches.push(targetUser._id);
             targetUser.matches.push(loggedUser._id);
@@ -32,6 +33,8 @@ module.exports = {
             }
 
         }
+
+
         loggedUser.likes.push(targetUser._id);
         await loggedUser.save();
 

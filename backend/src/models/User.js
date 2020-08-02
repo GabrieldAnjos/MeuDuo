@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-
 const UserSchema = new Schema({
     username: {
         type: String,
@@ -45,15 +44,7 @@ const UserSchema = new Schema({
     matches: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    messages: {
-        type: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Msg'
-        }],
-        select: false
-    }
-
+    }]
 }, {
     timestamps: true,
 });

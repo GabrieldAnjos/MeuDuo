@@ -4,7 +4,6 @@ const UserController = require('./controllers/UserController');
 const LikeController = require('./controllers/LikeController');
 const DislikeController = require('./controllers/DislikeController');
 const MatchesController = require('./controllers/MatchesController');
-const MessageController = require('./controllers/MessageController');
 const AuthController = require('./controllers/AuthController');
 
 const authMiddleware = require('./middlewares/auth');
@@ -18,10 +17,8 @@ routes.post('/authenticate', AuthController.show);
 
 routes.use(authMiddleware); //As rotas abaixo precisam de token de autenticação
 routes.get('/user/profile', UserController.show);
-routes.get('/user', UserController.index);
-routes.get('/message', MessageController.index);
-routes.get('/message/:friendId', MessageController.index);
-routes.post('/message', MessageController.store);
+routes.put('/user/edit', UserController.update);
+routes.get('/user/list', UserController.index);
 routes.get('/user/matches', MatchesController.index);
 routes.post('/user/:invocadorId/likes', LikeController.store);
 routes.post('/user/:invocadorId/dislikes', DislikeController.store);

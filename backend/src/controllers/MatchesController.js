@@ -19,6 +19,8 @@ module.exports = {
         if (!matches)
             return res.status(404).json({ error: 'Cant find matches ' })
 
+        console.log(matches)
+
         return res.json(matches);
     }
 };

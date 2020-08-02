@@ -13,7 +13,7 @@ module.exports = (req, res , next) => {
 
     const [ scheme, token ] = parts;
 
-    if(!/^Bearer$/i.test(scheme))   
+    if(!/^Bearer$/i.test(scheme))
         return res.status(401).send({ error: 'Token malformated' });
 
     jwt.verify(token, process.env.SECRET_HASH, (err, decoded) => {

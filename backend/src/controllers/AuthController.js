@@ -28,7 +28,7 @@ module.exports = {
         const { _id } = user;
         res.json({ token , _id });
            
-         
+         //return res.json({ userExists, token });
     },
 
 };

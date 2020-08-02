@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
-import { useDataLogin } from '../context/DataLogin';
-
 import api from '../services/api';
 import logo from '../assets/logo.svg';
 
@@ -21,8 +19,6 @@ function emblemURL(tierName) {
 }
 
 export default function Profile({ match, history }) {
-    const { authentication } = useDataLogin();
-
     const [users, setUsers] = useState({
         emblems: {
             RANKED_SOLO_5x5: {},
@@ -35,7 +31,7 @@ export default function Profile({ match, history }) {
         async function loadUsers() {
             const response = await api.get('/user/profile', {
                 headers: {
-                    authorization: authentication.token,
+                    authorization: match.params.token,
                 }
             });
             //cria um objeto para acessar diretamente os dados do elo
@@ -60,26 +56,28 @@ export default function Profile({ match, history }) {
         }
 
         loadUsers();
-    }, [authentication]);
+    }, [match.params.token]);
 
 
     return (
-        <div className="profile-container">
+        <div className="main-container">
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
-            
+            <ul>
+                <li>
+                    {/* temporário, pular uma coluna */}
+                </li>
+                <li>
                     <footer>
                         <div className="emblem-div">
                             <div className="emblem-mode">
-                                <p>Solo</p>
                                 <img className="emblem" src={emblemURL(users.emblems.RANKED_SOLO_5x5.tier)} alt={users.emblems.RANKED_SOLO_5x5.tier} />
                                 <div className="tier-name" >
                                     {users.emblems.RANKED_SOLO_5x5.tier} {users.emblems.RANKED_SOLO_5x5.rank}
                                 </div>
                             </div>
                             <div className="emblem-mode">
-                                <p>Flex</p>
                                 <img className="emblem" src={emblemURL(users.emblems.RANKED_FLEX_SR.tier)} alt={users.emblems.RANKED_FLEX_SR.tier} />
                                 <div className="tier-name">
                                     {users.emblems.RANKED_FLEX_SR.tier} {users.emblems.RANKED_FLEX_SR.rank}
@@ -100,8 +98,8 @@ export default function Profile({ match, history }) {
                             </div>
                         </div>
                     </footer>
-                    <button onClick={() => history.push('/editProfile')} className="editar">Editar Perfil</button>
-                    
+                </li>
+            </ul>
         </div>
     )
 }

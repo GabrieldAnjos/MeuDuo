@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-require('dotenv').config();
+require('dotenv').config()
 
 const routes = require('./routes');
 
@@ -17,7 +17,7 @@ const connectedUsers = {};
 io.on('connection', socket => {
     const { user } = socket.handshake.query;
 
-    console.log(user, socket.id);
+    //console.log(user, socket.id);
 
     connectedUsers[user] = socket.id;
 

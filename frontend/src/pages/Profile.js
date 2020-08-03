@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
-
 import { useDataLogin } from '../context/DataLogin';
-
 import api from '../services/api';
 import logo from '../assets/logo.svg';
 
@@ -68,7 +66,6 @@ export default function Profile({ match, history }) {
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
-            
                     <footer>
                         <div className="emblem-div">
                             <div className="emblem-mode">
@@ -101,7 +98,7 @@ export default function Profile({ match, history }) {
                         </div>
                     </footer>
                     <button onClick={() => history.push('/editProfile')} className="editar">Editar Perfil</button>
-                    
+
         </div>
     )
 }

@@ -6,6 +6,14 @@ import './Register.css';
 import api from '../services/api';
 
 import logo from '../assets/logo.svg';
+import central from '../assets/menu-circular/central.png';
+import top from '../assets/menu-circular/top.png';
+import jungle from '../assets/menu-circular/jungle.png';
+import mid from '../assets/menu-circular/mid.png';
+import bot from '../assets/menu-circular/bot.png';
+import suporte from '../assets/menu-circular/suporte.png';
+
+
 
 
 export default function Register({ history }) {
@@ -86,8 +94,20 @@ export default function Register({ history }) {
                     value={form.idade}
                     onChange={e => setForm({ ...form, idade: e.target.value }) }                          
                 />
+                <nav>
+                    <input type="checkbox" id="check"/>
+                    <label id="central" htmlFor="check"><img src={central} /></label> 
+                    <a href="#"><img className="link" id="link_01" src={top} alt=""/></a>  
+                    <a href="#"><img className="link" id="link_02" src={jungle} alt=""/></a>   
+                    <a href="#"><img className="link" id="link_03" src={mid} alt=""/></a>   
+                    <a href="#"><img className="link" id="link_04" src={bot} alt=""/></a>   
+                    <a href="#"><img className="link" id="link_05" src={suporte} alt=""/></a>     
+                </nav>
+               
                 <button type="submit" >Salvar</button>
             </form>
+            
+            
                
         </div>
     );

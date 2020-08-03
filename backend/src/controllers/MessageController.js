@@ -52,11 +52,11 @@ module.exports = {
 
         const { text, receiverId } = req.body;
 
-        const receiver = await User.findById(receiverId).select('+message');
+        const receiver = await User.findById(receiverId).select('messages');
         if (!receiver)
             return res.status(404).json({ error: 'Receiver dont exist ' })
 
-        const sender = await User.findById(senderId);
+        const sender = await User.findById(senderId).select('messages');
         if (!sender)
             return res.status(404).json({ error: 'Sender dont exist ' })
 
@@ -66,8 +66,8 @@ module.exports = {
             receiver: receiverId,
             read: false
         })
-        receiver.messages.push(new_msg)
-        sender.messages.push(new_msg)
+        receiver.messages.push(new_msg._id)
+        sender.messages.push(new_msg._id)
         receiver.save()
         // const new_receiver = receiver.save()
         // new_msg = new_receiver.messages[length - 1]

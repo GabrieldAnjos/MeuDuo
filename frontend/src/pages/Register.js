@@ -13,9 +13,6 @@ import mid from '../assets/menu-circular/mid.png';
 import bot from '../assets/menu-circular/bot.png';
 import suporte from '../assets/menu-circular/suporte.png';
 
-
-
-
 export default function Register({ history }) {
 
     

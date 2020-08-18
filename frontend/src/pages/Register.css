@@ -7,7 +7,7 @@
 
 .register-container form {
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     display: flex;
     flex-direction: column ;      
 }
@@ -41,74 +41,10 @@
     height: 80px;
 }
 
-.register-container nav {
-    margin: 75px auto;
-    background:gray;    
-    width: 280px;
-    height: 150px; 
-    border-radius: 220px 220px 7px 7px;
-    transition: all 1.5s ease-in-out;
 
-}
 
-.register-container nav #check {
-    display: none;
-}
 
-.register-container #central {
-    cursor: pointer;
-    width: 75px;
-    height: 75px;
-    position: absolute;
-    margin: 75px 102.5px; 
-    z-index: 1;  
-}
 
-.register-container #central img {
-    width: 100%;
-    transition: all 1.5s ease-in-out;
-    border-radius: 50%;
-}
 
-.register-container .link {
-    position: absolute;
-    margin:  95px 110px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    transition: all .5s ease-out;
-}
 
-.register-container #check:checked  nav {
-   color: black;   
-   height: 500px; 
-}
 
-.register-container #check:checked ~ #central img {
-    transform: rotate(180deg);
-}
-
-.register-container #check:checked ~ a #link_01 {
-    transform: translatex(-95px);
-    transition-delay: 0.8s;
-}
-
-.register-container #check:checked ~ a #link_02 {
-    transform: translate(-65px,-65px);
-    transition-delay: .8s;
-}
-
-.register-container #check:checked ~ a #link_03 {
-    transform: translateY(-90px);
-    transition-delay: .8s;
-}
-
-.register-container #check:checked ~ a #link_04 {
-    transform: translate(65px,-65px);
-    transition-delay: .8s;
-}
-
-.register-container #check:checked ~ a #link_05 {
-    transform: translateX(95px);
-    transition-delay: .8s;
-}

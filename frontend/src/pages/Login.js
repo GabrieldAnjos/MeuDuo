@@ -7,14 +7,11 @@ import api from '../services/api';
 
 import logo from '../assets/logo.svg';
 
-
-
 export default function Login({ history }) {
     const { authentication, setAuthentication } = useDataLogin();
 
 
     const [form, setForm] = useState({ username: '', password: '' });
-    const [champion, setChampion] = useState('');
 
     async function handleClickLogar(e){
         e.preventDefault();
@@ -34,27 +31,17 @@ export default function Login({ history }) {
 
     async function handleClickCadastrar(e){
         e.preventDefault();
-        
 
+        history.push('/register');  
+        
         //window.location.href = "https://www.instagram.com/accounts/login/?force_authentication=1&enable_fb_login=1&platform_app_id=3069624946478619&next=/oauth/authorize%3Fclient_id%3D3069624946478619%26redirect_uri%3Dhttps%3A//github.com/GabrieldAnjos/sistemaMeuDuo%26scope%3Duser_profile%2Cuser_media%26response_type%3Dcode";     
        // console.log(response.data);
         
     }
 
-    function handleSelectChampion(name) {
-        setChampion(name)
-    }
-
     return (
         <div className="login-container">
             <form>
-                <input
-                    name="campeao"
-                    placeholder="Digite o nome do campeão"
-                    value={champion}
-                    onChange={e => setChampion(e.target.value)}
-                />
-                <ChampionSelector searchingName={champion} onSelection={handleSelectChampion}></ChampionSelector>
                 <img src={ logo } alt="MeuDuo"/>
                 <input
                     name="username"
@@ -71,12 +58,7 @@ export default function Login({ history }) {
                 />
                 <button onClick={handleClickLogar} >Login</button>
                 <button onClick={handleClickCadastrar} >Cadastrar</button>
-            </form>
-<<<<<<< HEAD
-            <Cadastrar />               
-=======
-
->>>>>>> 853550c1b3d34b7f0e408f562d9b3b5515d793cb
+            </form>             
         </div>
     );
 }

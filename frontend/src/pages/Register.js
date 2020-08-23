@@ -8,10 +8,9 @@ import FormUser from "../components/FormUser";
 //imagens
 import logo from '../assets/logo.svg';
 
-
 export default function Register({ history }) {
 
-    const [form, setForm] = useState({
+    const [form] = useState({
         username: '',
         password: '',
         password2: '',

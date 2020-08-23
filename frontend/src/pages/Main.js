@@ -4,20 +4,19 @@ import { Link } from 'react-router-dom';
 //Serviços
 import io from 'socket.io-client';
 import api from '../services/api';
-import { iconURL, emblemURL, routeURL, championURL } from '../services/publicAssetsApi';
+import { iconURL } from '../services/publicAssetsApi';
 import { useDataLogin } from '../context/DataLogin';
 //Componentes
 import ChatWindow from '../components/ChatWindow';
-import MatchList from '../components/MatchList';
+import Card from '../components/Card';
 import SideMenu from '../components/SideMenu';
 //Imagens
 import logo from '../assets/logo.svg';
 import like from '../assets/like.svg';
 import dislike from '../assets/dislike.svg';
 import itsamatch from '../assets/itsamatch.png'
-import BoxProfile from '../components/BoxProfile';
 
-export default function Main({ match, history }) {
+export default function Main() {
     const [users, setUsers] = useState([]);
     const [matches, setMatches] = useState([]);
     const [matchUser, setMatchUser] = useState(null);
@@ -53,6 +52,7 @@ export default function Main({ match, history }) {
             })
             //--------------------------------------
             setUsers(response.data);
+            console.log(response.data);
         }
         loadUsers();
 
@@ -82,7 +82,7 @@ export default function Main({ match, history }) {
             setMatchUser(invocador);
         })
 
-    }, [authentication]);
+    }, [authentication, matchUser]);
 
     async function handleLike(invocadorId) {
         await api.post(`user/${invocadorId}/likes`, null, {
@@ -121,45 +121,7 @@ export default function Main({ match, history }) {
                 <ul>
                     {users.map(user => (
                         <li key={user._id}>
-                            <footer>
-                                <div className="emblem-div">
-                                    <div className="emblem-mode">
-                                        <p>Solo</p>
-                                        <img className="emblem" src={emblemURL(user.league_obj.solo.tier)} alt={user.league_obj.solo.tier} />
-                                        <div className="tier-name" >
-                                            {user.league_obj.solo.tier} {user.league_obj.solo.rank}
-                                        </div>
-                                    </div>
-                                    <div className="emblem-mode">
-                                        <p>Flex</p>
-                                        <img className="emblem" src={emblemURL(user.league_obj.flex.tier)} alt={user.league_obj.flex.tier} />
-                                        <div className="tier-name">
-                                            {user.league_obj.flex.tier} {user.league_obj.flex.rank}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="infoUsers">
-                                    <div className="infoLol">
-                                        <img className="icon" src={iconURL(user.profileIconId)} alt="icone de invocador" />
-                                        <p>{user.summonerLevel}</p>
-                                        <strong>{user.username}</strong>
-                                    </div>
-                                    <div className="infoInsta">
-                                        <img className="icon" src={user.avatarInstagram} alt="avatar instagram" />
-                                        <p>{user.age}</p>
-                                        <strong>{user.userInstagram}</strong>
-                                    </div>
-                                </div>
-
-                                <div className="mainChamps">
-                                    <img src={championURL(user.champion)} alt={user.champion} />
-                                    <img src={championURL(user.champion2)} alt={user.champion2} />
-                                    <img src={championURL(user.champion3)} alt={user.champion3} />
-                                    <img className="icon.small" src={routeURL(user.route)} alt={`Rota do ${user.route}`} />
-                                    <img src={routeURL(user.route2)} alt={`Rota do ${user.route2}`} />
-                                </div>
-                            </footer>
+                            <Card userCard={user} ></Card>
 
                             <div className="buttons">
                                 <button type="button" onClick={() => handleDislike(user._id)}>
@@ -174,7 +136,7 @@ export default function Main({ match, history }) {
                     ))}
                 </ul>
             ) : (
-                    <div className="empty">Acabou  :(</div>
+                    <div className="empty">Acabou  :( </div>
                 )}
 
 

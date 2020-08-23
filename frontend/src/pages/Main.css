@@ -65,6 +65,9 @@ div.tier-name{
 }
 
 .matchlist-container{
+    position: fixed;
+    right: 0;
+    top: 20%;
     padding: 0px;
     margin: 0px;
 }
@@ -80,17 +83,19 @@ div.tier-name{
     list-style-type: none;
 }
 
-.matchlist-container ul li div.match-wrapper{
-    border-bottom: 1px solid #999;
-    background-color: #eee;
-    align-self: center;
-    padding: 15px;
-    font-weight: bold;
+.chatBox-container{
+    padding: 0px;
+    margin: 0px;
+    
 }
 
-.matchlist-container ul li img.icon.small {
-    width: 50px;
-    height: 50px;
+.chatBox-container ul{
+    list-style-position:inside;
+    display: flex;
+}
+
+.chatBox-container ul li{
+    list-style-type: none;
 }
 
 .main-container ul li footer {

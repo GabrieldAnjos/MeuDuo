@@ -8,7 +8,7 @@ import api from '../services/api';
 import logo from '../assets/logo.svg';
 
 export default function Login({ history }) {
-    const { authentication, setAuthentication } = useDataLogin();
+    const { setAuthentication } = useDataLogin();
 
 
     const [form, setForm] = useState({ username: '', password: '' });

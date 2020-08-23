@@ -8,15 +8,11 @@
 
 }
 
-.route-container nav #check {
-   display: none;
-}
-
 .route-container nav input{
     display: none;
 }
 
-.route-container #central {
+.route-container #allRoutes {
     cursor: pointer;
     width: 75px;
     height: 75px;
@@ -25,13 +21,14 @@
     z-index: 1;  
 }
 
-.route-container #central img {
+.route-container #allRoutes img {
     width: 100%;
     transition: all 1.5s ease-in-out;
     border-radius: 50%;
 }
 
 .route-container .link {
+    cursor: pointer;
     position: absolute;
     margin:  95px 117.5px;
     width: 50px;
@@ -40,41 +37,41 @@
     transition: all .5s ease-out;
 }
 
-.route-container #check:checked  nav {
+.route-container #checkroute:checked ~ nav {
    color: black;   
-   height: 500px; 
+   background-color: blue;
 }
 
-.route-container #check:checked ~ #central img {
+.route-container #checkroute:checked ~ #allRoutes img {
     transform: rotate(180deg);
 }
 
-.route-container #check:checked ~ #top1 #link_01 {
+.route-container #checkroute:checked ~ #top1 #link_01 {
     transform: translatex(-95px);
     transition-delay: 0.8s;
 }
 
-.route-container #check:checked ~ #jungle1 #link_02 {
+.route-container #checkroute:checked ~ #jungle1 #link_02 {
     transform: translate(-65px,-65px);
     transition-delay: .8s;
 }
 
-.route-container #check:checked ~ #mid1 #link_03 {
+.route-container #checkroute:checked ~ #mid1 #link_03 {
     transform: translateY(-90px);
     transition-delay: .8s;
 }
 
-.route-container #check:checked ~ #bot1 #link_04 {
+.route-container #checkroute:checked ~ #bot1 #link_04 {
     transform: translate(65px,-65px);
     transition-delay: .8s;
 }
 
-.route-container #check:checked ~ #suporte1 #link_05 {
+.route-container #checkroute:checked ~ #suporte1 #link_05 {
     transform: translateX(95px);
     transition-delay: .8s;
 }
 
-.route-container #top:checked ~ #top1 #link_01 {
+.route-container #toproute:checked ~ #top1 #link_01 {
     
     width: 75px;
     height: 75px;
@@ -82,65 +79,170 @@
     transition-delay: .1s;
 }
 
-.route-container #jungle:checked ~ #jungle1 #link_02 {
+.route-container #jungleroute:checked ~ #jungle1 #link_02 {
     width: 75px;
     height: 75px;
     margin: 87.5px 102.5px; 
     transition-delay: .1s;
 }
 
-.route-container #mid:checked ~ #mid1 #link_03 {
+.route-container #midroute:checked ~ #mid1 #link_03 {
     width: 75px;
     height: 75px;
     margin: 87.5px 102.5px; 
     transition-delay: .1s;
 }
 
-.route-container #bot:checked ~ #bot1 #link_04 {
+.route-container #botroute:checked ~ #bot1 #link_04 {
     width: 75px;
     height: 75px;
     margin: 87.5px 102.5px; 
     transition-delay: .1s;
 }
 
-.route-container #suporte:checked ~ #suporte1 #link_05 {
+.route-container #suporteroute:checked ~ #suporte1 #link_05 {
     width: 75px;
     height: 75px;
     margin: 77.5px 102.5px; 
     
 }
 
-.route-container #check:not(:checked) ~ #top1 #link_01 {
+.route-container #checkroute:not(:checked) ~ #top1 #link_01 {
     position: absolute;
     margin:  95px 110px;
     width: 40px;
     height: 40px;
 }
 
-.route-container #check:not(:checked) ~ #jungle1 #link_02 {
+.route-container #checkroute:not(:checked) ~ #jungle1 #link_02 {
     position: absolute;
     margin:  95px 110px;
     width: 50px;
     height: 50px;
 }
 
-.route-container #check:not(:checked) ~ #mid1 #link_03 {
+.route-container #checkroute:not(:checked) ~ #mid1 #link_03 {
     position: absolute;
     margin:  95px 110px;
     width: 50px;
     height: 50px;
 }
 
-.route-container #check:not(:checked) ~ #bot1 #link_04 {
+.route-container #checkroute:not(:checked) ~ #bot1 #link_04 {
     position: absolute;
     margin:  95px 110px;
     width: 50px;
     height: 50px;
 }
 
-.route-container #check:not(:checked) ~ #suporte1 #link_05 {
+.route-container #checkroute:not(:checked) ~ #suporte1 #link_05 {
     position: absolute;
     margin:  95px 110px;
     width: 50px;
     height: 50px;
 }
+
+.route-container #checkroute2:checked ~ nav {
+    color: black;   
+    background-color: blue;
+ }
+ 
+ .route-container #checkroute2:checked ~ #allRoutes img {
+     transform: rotate(180deg);
+ }
+ 
+ .route-container #checkroute2:checked ~ #top1 #link_01 {
+     transform: translatex(-95px);
+     transition-delay: 0.8s;
+ }
+ 
+ .route-container #checkroute2:checked ~ #jungle1 #link_02 {
+     transform: translate(-65px,-65px);
+     transition-delay: .8s;
+ }
+ 
+ .route-container #checkroute2:checked ~ #mid1 #link_03 {
+     transform: translateY(-90px);
+     transition-delay: .8s;
+ }
+ 
+ .route-container #checkroute2:checked ~ #bot1 #link_04 {
+     transform: translate(65px,-65px);
+     transition-delay: .8s;
+ }
+ 
+ .route-container #checkroute2:checked ~ #suporte1 #link_05 {
+     transform: translateX(95px);
+     transition-delay: .8s;
+ }
+ 
+ .route-container #toproute2:checked ~ #top1 #link_01 {
+     
+     width: 75px;
+     height: 75px;
+     margin: 80px 102.5px; 
+     transition-delay: .1s;
+ }
+ 
+ .route-container #jungleroute2:checked ~ #jungle1 #link_02 {
+     width: 75px;
+     height: 75px;
+     margin: 87.5px 102.5px; 
+     transition-delay: .1s;
+ }
+ 
+ .route-container #midroute2:checked ~ #mid1 #link_03 {
+     width: 75px;
+     height: 75px;
+     margin: 87.5px 102.5px; 
+     transition-delay: .1s;
+ }
+ 
+ .route-container #botroute2:checked ~ #bot1 #link_04 {
+     width: 75px;
+     height: 75px;
+     margin: 87.5px 102.5px; 
+     transition-delay: .1s;
+ }
+ 
+ .route-container #suporteroute2:checked ~ #suporte1 #link_05 {
+     width: 75px;
+     height: 75px;
+     margin: 77.5px 102.5px; 
+     
+ }
+ 
+ .route-container #checkroute2:not(:checked) ~ #top1 #link_01 {
+     position: absolute;
+     margin:  95px 110px;
+     width: 40px;
+     height: 40px;
+ }
+ 
+ .route-container #checkroute2:not(:checked) ~ #jungle1 #link_02 {
+     position: absolute;
+     margin:  95px 110px;
+     width: 50px;
+     height: 50px;
+ }
+ 
+ .route-container #checkroute2:not(:checked) ~ #mid1 #link_03 {
+     position: absolute;
+     margin:  95px 110px;
+     width: 50px;
+     height: 50px;
+ }
+ 
+ .route-container #checkroute2:not(:checked) ~ #bot1 #link_04 {
+     position: absolute;
+     margin:  95px 110px;
+     width: 50px;
+     height: 50px;
+ }
+ 
+ .route-container #checkroute2:not(:checked) ~ #suporte1 #link_05 {
+     position: absolute;
+     margin:  95px 110px;
+     width: 50px;
+     height: 50px;
+ }

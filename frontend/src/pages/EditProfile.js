@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useDataLogin } from '../context/DataLogin';
-
 import './EditProfile.css';
-
+//Serviços
 import api from '../services/api';
-
+import { useDataLogin } from '../context/DataLogin';
+//Componentes
+import FormUser from '../components/FormUser';
+//Imagens
 import logo from '../assets/logo.svg';
-
 
 export default function EditProfile({ history, match }) {
     const { authentication } = useDataLogin();
-
-    const[form, setForm] = useState({
+    const [form, setForm] = useState({
         username: '',
-        summonerName: '',
+        password: '',
+        password2: '',
         email: '',
         userInstagram: '',
-        idade: '',
+        age: '',
+        route: 'Todas as Rotas',
+        route2: 'Todas as Rotas',
+        champion: '',
+        champion2: '',
+        champion3: ''
     });
 
     useEffect(() => {
@@ -28,75 +32,43 @@ export default function EditProfile({ history, match }) {
                     authorization: authentication.token,
                 }
             });
-            
-            
+
             setForm(user.data);
         }
         loadUser();
-       
+
     }, [authentication]);
 
-  
+    async function handleSubmit(formStateChild) {
 
-    
-    async function handleSubmit(e){
-        e.preventDefault();
-        
         await api.put("/user/edit", {
-            username: form.username,
-            summonerName: form.username,
-            email: form.email,
-            instagram: form.userInstagram,
-            idade: form.idade,
-            
+            username: formStateChild.username,
+            summonerName: formStateChild.username,
+            email: formStateChild.email,
+            instagram: formStateChild.userInstagram,
+            age: formStateChild.age,
+            route: formStateChild.route,
+            route2: formStateChild.route2,
+            champion: formStateChild.champion,
+            champion2: formStateChild.champion2,
+            champion3: formStateChild.champion3
         },
-        {
-            headers: {
-                authorization: authentication.token,
-            }
-        });
+            {
+                headers: {
+                    authorization: authentication.token,
+                }
+            });
 
-        
         history.push('/profile');
-      
-        
-        
     }
 
     return (
 
         <div className="editProfile-container">
-            <form onSubmit={ handleSubmit }>
-                <Link to="/">
-                    <img className="logo" src={ logo } alt="MeuDuo" />
-                </Link>
-                <input 
-                    name="username"
-                    placeholder="Digite seu nome de Invocador" 
-                    value={form.username}
-                    onChange={e => setForm({ ...form, username: e.target.value }) }           
-                />
-                <input 
-                    name="email" 
-                    placeholder="Digite seu E-mail" 
-                    value={form.email}
-                    onChange={e => setForm({ ...form, email: e.target.value }) }                          
-                />
-                <input 
-                    name="instagram" 
-                    placeholder="Digite seu Instagram" 
-                    value={form.userInstagram}
-                    onChange={e => setForm({ ...form, userInstagram: e.target.value }) }                          
-                />
-                <input 
-                    name="idade" 
-                    placeholder="Digite sua Idade" 
-                    value={form.idade}
-                    onChange={e => setForm({ ...form, idade: e.target.value }) }                          
-                />
-                <button  type="submit" >Salvar Alteração</button>
-            </form>
-               
+            <Link to="/">
+                <img className="logo" src={logo} alt="MeuDuo" />
+            </Link>
+            <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
         </div>
     );
 }

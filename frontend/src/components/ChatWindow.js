@@ -18,7 +18,7 @@ function dateFormatComplete(d) {
 export default function ChampionSelector({ token, userId, friend }) {
     const [msgList, setMsgList] = useState([])
     const [msgText, setMsgText] = useState('')
-    console.log({ token, userId, friend })
+    //console.log({ token, userId, friend })
 
 
     useEffect(() => {
@@ -70,7 +70,7 @@ export default function ChampionSelector({ token, userId, friend }) {
                     alt={friend.username}
                     tittle={friend.username} />
             </div>
-            <div className="txt-conteiner">
+            <div className="txt-container">
                 <ul>{
                     (msgList || []).map(m => (
                         <li key={m._id}>

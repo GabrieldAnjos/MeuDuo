@@ -20,6 +20,11 @@ const UserSchema = new Schema({
     },
     profileIconId: Number,
     summonerLevel: Number,
+    champion: String,
+    champion2: String,
+    champion3: String,
+    route: String,
+    route2: String,
     league: [
         {
             queueType: String,
@@ -29,7 +34,7 @@ const UserSchema = new Schema({
     ],
     userInstagram: String,
     avatarInstagram: String,
-    idade: {
+    age: {
         type: Number,
         required: true,
     },

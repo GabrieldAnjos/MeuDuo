@@ -8,6 +8,12 @@
     box-sizing: border-box;
 }
 
+.chat-window ul {
+        list-style-position:inside;
+        display: flex;
+        flex-direction:  column;    
+}
+
 .chat-window .titlebar{
     height: 40px;
     background-color: rgb(215, 239, 255);
@@ -18,7 +24,7 @@
     height: inherit;
 }
 
-.txt-conteiner{
+.txt-container{
     height: 200px;
     overflow-y:scroll;
 }

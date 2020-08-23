@@ -10,4 +10,13 @@ function emblemURL(tierName) {
         return `/assets_riot/ranked-emblems/Emblem_${tierName}.png`
 }
 
-export {iconURL, emblemURL}
+function championURL(championName) {
+    return `/assets_riot/champion_low/${championName}.png`
+}
+
+function routeURL(routeName) {
+    return `/assets_riot/routesLane/${routeName}.png`
+}
+
+
+export {iconURL, emblemURL, routeURL, championURL}

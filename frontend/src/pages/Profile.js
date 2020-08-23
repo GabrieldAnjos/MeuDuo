@@ -92,7 +92,7 @@ export default function Profile({ match, history }) {
                             </div>
                             <div className="infoInsta">
                                 <img className="icon" src={users.avatarInstagram} alt="avatar instagram" />
-                                <p>{users.idade}</p>
+                                <p>{users.age}</p>
                                 <strong>{users.userInstagram}</strong>
                             </div>
                         </div>

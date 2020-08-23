@@ -38,7 +38,7 @@ module.exports = {
 
 
     async store(req, res) {
-        const { username, summonerName, password, email, instagram, idade } = req.body;
+        const { username, summonerName, password, email, instagram, age, champion, champion2, champion3, route, route2 } = req.body;
 
         const userExists = await User.findOne({ username });
 
@@ -67,10 +67,15 @@ module.exports = {
             summonerName: name,
             profileIconId,
             summonerLevel,
+            champion,
+            champion2,
+            champion3,
+            route,
+            route2,
             league,
             avatarInstagram: profile_pic_url,
             userInstagram,
-            idade
+            age
 
         })
 
@@ -80,7 +85,7 @@ module.exports = {
 
     async update(req, res) {
       
-        const { username, summonerName, email, instagram, idade } = req.body;
+        const { username, summonerName, email, instagram, age, route, route2, champion, champion2, champion3 } = req.body;
 
         const userExists = await User.findOne({ 
             $and: [
@@ -113,10 +118,15 @@ module.exports = {
             summonerName: name,
             profileIconId,
             summonerLevel,
+            route,
+            route2, 
+            champion,
+            champion2,
+            champion3,
             league,
             avatarInstagram: profile_pic_url,
             userInstagram,
-            idade
+            age
         }, {useFindAndModify: false});
 
         return res.json(user);

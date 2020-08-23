@@ -3,38 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;  
-}
-
-.register-container form {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column ;      
-}
-
-.register-container form input {
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    height: 48px;
-    padding: 0 20px;
-    font-size: 16px;
-    color: #666;
-}
-
-.register-container form input ::placeholder {
-    color: #999;
-}
-
-.register-container form button {
-    margin-top: 10px;
-    border: 0;
-    border-radius: 4px;
-    height: 48px;
-    font-size: 16px;
-    background: rgb(44, 97, 128);
-    color: #fff;
-    cursor: pointer;
+    flex-direction: column
 }
 
 .register-container .logo {

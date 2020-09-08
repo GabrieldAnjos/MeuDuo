@@ -11,7 +11,7 @@ import ChatWindow from '../components/ChatWindow';
 import Card from '../components/Card';
 import SideMenu from '../components/SideMenu';
 //Imagens
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import like from '../assets/like.svg';
 import dislike from '../assets/dislike.svg';
 import itsamatch from '../assets/itsamatch.png'

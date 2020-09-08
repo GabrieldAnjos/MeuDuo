@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
 
-    async show(req, res) {
+    async store(req, res) {
         const { username, password } = req.body;
 
         const user = await User.findOne({ username }).select('+password');
@@ -29,6 +29,11 @@ module.exports = {
         res.json({ token , _id });
            
          
+    },
+
+    async show(req, res) {
+        res.json(true);
+           
     },
 
 };

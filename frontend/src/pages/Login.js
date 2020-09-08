@@ -5,7 +5,7 @@ import { useDataLogin } from '../context/DataLogin';
 
 import api from '../services/api';
 
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 export default function Login({ history }) {
     const { setAuthentication } = useDataLogin();

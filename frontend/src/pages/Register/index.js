@@ -1,13 +1,15 @@
+
+import { Container, Title, Header, ArrowBack } from './styles.js';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Register.css';
-//Serviços
-import api from '../services/api';
-//Componentes
-import FormUser from "../components/FormUser";
-//imagens
-import logo from '../assets/logo.svg';
 
+//Serviços
+import api from '../../services/api';
+//Componentes
+import FormUser from "../../components/FormUser";
+//imagens
+import logo from '../../assets/logo.png';
+import arrowBack from '../../assets/arrowBack.png';
 export default function Register({ history }) {
 
     const [form] = useState({
@@ -43,11 +45,16 @@ export default function Register({ history }) {
     }
 
     return (
-        <div className="register-container">
-            <Link to="/">
-                <img className="logo" src={logo} alt="MeuDuo" />
-            </Link>
-            <FormUser formStateParent={form} onSave={handleSubmit} ></FormUser>
-        </div>
+        <Container>
+            <Header>
+                <Link to='/'>
+                    <ArrowBack src={arrowBack} alt="Voltar" />
+                </Link>
+                <img src={logo} alt="MeuDuo" />
+            </Header>
+            <Title>Registre-se</Title>
+            <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
+        </Container>
+
     );
 }

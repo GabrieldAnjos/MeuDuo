@@ -7,7 +7,7 @@ import { useDataLogin } from '../context/DataLogin';
 //Componentes
 import FormUser from '../components/FormUser';
 //Imagens
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 export default function EditProfile({ history, match }) {
     const { authentication } = useDataLogin();

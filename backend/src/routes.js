@@ -14,9 +14,10 @@ const routes = express.Router();
 
 
 routes.post('/user', UserController.store);
-routes.post('/authenticate', AuthController.show);
+routes.post('/authenticate', AuthController.store);
 
 routes.use(authMiddleware); //As rotas abaixo precisam de token de autenticação
+routes.get('/authenticate', AuthController.show);
 routes.get('/user/profile', UserController.show);
 routes.put('/user/edit', UserController.update);
 routes.get('/user/list', UserController.index);

@@ -7,7 +7,7 @@ import api from '../services/api';
 //Componentes
 import Card from '../components/Card';
 //Imagens
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 export default function Profile({ history }) {
     const { authentication } = useDataLogin();

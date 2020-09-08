@@ -1,16 +1,19 @@
 import React from 'react';
-import './App.css';
+//Styles
+import GlobalStyle from './styles/global';
 
 //import Login from './pages/Login'
-import DatesProvider from './context/DataLogin';
+import DatasProvider from './context/DataLogin';
 
 import Routes from './routes';
 
 function App() {
   return (
-    <DatesProvider>
+
+    <DatasProvider>
+      <GlobalStyle />
       <Routes />
-    </DatesProvider>
+    </DatasProvider>
   );
 }
 

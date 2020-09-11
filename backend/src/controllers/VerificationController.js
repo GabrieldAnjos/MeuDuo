@@ -37,8 +37,7 @@ module.exports = {
                     thirdPartyCode,
                     iconId
                 });
-        else
-        {
+        else {
             data.thirdPartyCode = thirdPartyCode;
             data.iconId = iconId;
             await data.save()
@@ -56,19 +55,21 @@ module.exports = {
                 error: 'Name not provided'
             });
 
-        let summonerCode;
+        let data_verif = await Verification.findOne({ summonerName })
+        if (!data_verif) {
+            return res.status(404).json({ error: 'verification Code not generated yet' });
+        }
 
+        let summonerCode;
         try {
             const summoner = await kayn.Summoner.by.name(summonerName);
             if (!summoner)
                 return res.status(404).json({
-                    verified: false,
                     error: 'Summoner not found'
                 });
             const code = await kayn.ThirdPartyCode.by.summonerID(summoner.id)
             if (!code)
                 return res.status(404).json({
-                    verified: false,
                     error: 'Third party code not found'
                 });
             summonerCode = code;
@@ -80,14 +81,13 @@ module.exports = {
             });
         }
 
-        const data = await Verification.findOne({ summonerName }).select('thirdPartyCode')
-        if (!data) {
-            return res.status(404).json({ error: 'verification Code not generated yet' });
+        if (data_verif.thirdPartyCode == summonerCode) {
+            data_verif.confirmed = true;
+            data_verif.confirmed_at = new Date();
+            data_verif = await data_verif.save();
         }
-        if (data.thirdPartyCode == summonerCode)
-            return res.json({ verified: true })
-        else
-            return res.json({ verified: false })
+
+        return res.json(data_verif)
     },
 
     async checkIcon(req, res) {
@@ -98,6 +98,11 @@ module.exports = {
                 verified: false,
                 error: 'Name not provided'
             });
+
+        let data_verif = await Verification.findOne({ summonerName })
+        if (!data_verif) {
+            return res.status(404).json({ error: 'verification Code not generated yet' });
+        }
 
         let summonerIconId;
         try {
@@ -116,14 +121,11 @@ module.exports = {
             });
         }
 
-        const data = await Verification.findOne({ summonerName }).select('iconId')
-        console.log(data)
-        if (!data) {
-            return res.status(404).json({ error: 'verification not generated yet' });
+        if (data_verif.iconId == summonerIconId) {
+            data_verif.confirmed = true;
+            data_verif.confirmed_at = new Date();
+            data_verif = await data_verif.save();
         }
-        if (data.iconId == summonerIconId)
-            return res.json({ verified: true })
-        else
-            return res.json({ verified: false })
+        return res.json(data_verif)
     }
 };

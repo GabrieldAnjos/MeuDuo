@@ -1,9 +1,14 @@
 const { Schema, model } = require('mongoose');
 
 const verificationSchema = new Schema({
-    summonerName: String,
+    summonerName: {
+        type: String,
+        required: true
+    },
     thirdPartyCode: String,
-    iconId: Number
+    iconId: Number,
+    confirmed: Boolean,
+    confirmed_at: Date
 }, {
     timestamps: true,
 });

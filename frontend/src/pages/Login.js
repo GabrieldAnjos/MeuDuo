@@ -12,24 +12,32 @@ import background from '../assets/Nunu_0.jpg';
 import login_acc from '../assets/login_account.svg';
 import login_pass from '../assets/login_pass.svg';
 
+import InputLabel from '@material-ui/core/InputLabel'
+import Input from '@material-ui/core/Input'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import AccountCircle from '@material-ui/icons/AccountCircleOutlined'
+import Lock from '@material-ui/icons/LockOutlined'
+import TextField from '@material-ui/core/TextField'
+
 const ContainerInput = styled.div`
     background-color : white;
     border-radius: 5px;
     height: auto;
-    width: 50vh;
-    display: flex;
+    width: auto;    
     margin: 15px;
+    padding: 10px;
 `
 
-const Input = styled.input`
+const InputSimple = styled.input`
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: black;
-    background-color : transparent; 
+    background-color: transparent; 
     height: auto;
-    width: 100%;
+    width: 50vh;
     padding: 10px 10px 10px 20px;
     border: 0px;
+    
     &::placeholder{
         color: #AAA;
     }
@@ -45,18 +53,20 @@ const LoginIcon = styled.img`
 
 const ButtonLogin = styled.button`
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-weight: bold;
+    font-size: 15px;
+    font-kerning: auto;
     color: white;
     background-color: #d7553e;
-    border-radius: 10px;
+    box-shadow: 0px 1px 2px #0008;
+    border-radius: 5px;
     border: 0px;
     padding: 10px 20px;
     margin: 15px;
+    transition:0.5s;
     &:hover{
-        box-shadow: 0px 0px 10px #fff6;
-        text-shadow: 0px 0px 10px #fff6;
+        box-shadow: 0px 1px 5px #0008;
     }
-    transition:0.4s;
 `
 
 const ContainerForm = styled.div`
@@ -80,7 +90,7 @@ const UnderlineBar = styled.div`
     width: 0px;
     height: 100%;
     margin: 0px;
-    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     float: ${props => props.side};
 `
 
@@ -112,7 +122,6 @@ const BackFrame = styled.img`
     position: relative;
     margin-left: 50%;
     transform: translateX(-50%);
-
 `
 
 const BackShadow = styled.div`
@@ -121,6 +130,11 @@ const BackShadow = styled.div`
     width: 100%;
     padding: 0px;
     overflow: hidden;
+`
+
+const FormContainer = styled.form`
+    border-radius: 5px;
+    padding:10px;
 `
 
 export default function Login({ history }) {
@@ -158,21 +172,44 @@ export default function Login({ history }) {
                 <ContainerLink>
                     <a>Login</a>
                     <Underline>
-                        <UnderlineBar side="right"/>
+                        <UnderlineBar side="right" />
                     </Underline>
                 </ContainerLink>
 
                 <ContainerLink>
                     <a onClick={handleClickCadastrar} >Cadastrar</a>
                     <Underline>
-                        <UnderlineBar side="left"/>
+                        <UnderlineBar side="left" />
                     </Underline>
                 </ContainerLink>
 
-                <form>
+                <FormContainer>
+                    <ContainerInput>
+                        <InputLabel htmlFor="input-user">Username</InputLabel>
+                        <Input
+                            id="input-user"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <AccountCircle />
+                                </InputAdornment>
+                            }
+                        />
+                    </ContainerInput>
+                    <ContainerInput>
+                        <InputLabel htmlFor="input-pass">Password</InputLabel>
+                        <Input
+                            id="input-pass"
+                            label="teste"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <Lock />
+                                </InputAdornment>
+                            }
+                        />
+                    </ContainerInput>
                     <ContainerInput>
                         <LoginIcon src={login_acc} alt="Invocador" />
-                        <Input
+                        <InputSimple
                             name="username"
                             placeholder="Login"
                             value={form.username}
@@ -181,7 +218,7 @@ export default function Login({ history }) {
                     </ContainerInput>
                     <ContainerInput>
                         <LoginIcon src={login_pass} alt="Senha" />
-                        <Input
+                        <InputSimple
                             name="password"
                             type="password"
                             placeholder="Senha"
@@ -189,8 +226,8 @@ export default function Login({ history }) {
                             onChange={e => setForm({ ...form, password: e.target.value })}
                         />
                     </ContainerInput>
-                    <ButtonLogin onClick={handleClickLogar} >Entrar</ButtonLogin>
-                </form>
+                    <ButtonLogin onClick={handleClickLogar} >ENTRAR</ButtonLogin>
+                </FormContainer>
             </ContainerForm>
         </>
     );

@@ -1,4 +1,6 @@
-.login-container {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Roboto&display=swap');
+
+/* .login-container {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -39,6 +41,6 @@
 
 .login-container img {
     height: 100px;
-}
+} */
 
 

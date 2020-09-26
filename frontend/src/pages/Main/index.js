@@ -25,6 +25,7 @@ export default function Main() {
     const [users, setUsers] = useState([]);
     const [matches, setMatches] = useState([]);
     const [matchUser, setMatchUser] = useState(null);
+    const [chatStatus, setChatStatus] = useState([]);
 
     const { authentication } = useDataLogin();
 
@@ -63,6 +64,22 @@ export default function Main() {
 
 
     }, [authentication]);
+
+    
+    useEffect(() => {
+        async function loadChats() {
+            const chats = await api.get('/user/matches', {
+                headers: {
+                    authorization: authentication.token,
+                }
+            })
+            //mat.data.map(m => { m.chatIsOpen = false });
+            setChatStatus(chats.data);
+        }
+        loadChats();
+
+    }, [authentication]);
+    
 
     useEffect(() => {
         async function loadMatches() {
@@ -133,22 +150,21 @@ export default function Main() {
 
     function handleChat(idFriend) {
 
-        const chatOpenStatus = matches.map(m => {
+        const chatOpenStatus = chatStatus.map(m => {
             return m._id === idFriend ? { ...m, chatIsOpen: !m.chatIsOpen } : m
         });
-        setMatches(chatOpenStatus);
+        setChatStatus(chatOpenStatus);
     }
 
-    function handleMatch(idFriend){
+    function handleMatch(userMatch){
         setMatchUser(null);
 
-        console.log(idFriend);
-        if(idFriend !== null){
-            handleChat(idFriend);
-        }
-
-       
-
+        if(userMatch !== null){
+            const chatStatusTemp = chatStatus;
+            setChatStatus(chatStatusTemp.push(userMatch));
+            
+            handleChat(userMatch._id);
+        } 
     }
 
     const renderSlides = () =>
@@ -202,9 +218,9 @@ export default function Main() {
 
             <ChatBox>
                 {
-                    matches.filter(m => m.chatIsOpen === true).length > 0 ?
+                    chatStatus.filter(m => m.chatIsOpen === true).length > 0 ?
                         (<ul>
-                            {matches.filter(m => m.chatIsOpen === true).map(m => (
+                            {chatStatus.filter(m => m.chatIsOpen === true).map(m => (
                                 <li key={m._id}>
                                     <ChatWindow token={authentication.token} userId={authentication.idUser} friend={m}></ChatWindow>
                                 </li>

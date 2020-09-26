@@ -6,6 +6,7 @@ const DislikeController = require('./controllers/DislikeController');
 const MatchesController = require('./controllers/MatchesController');
 const MessageController = require('./controllers/MessageController');
 const AuthController = require('./controllers/AuthController');
+const VerificationController = require('./controllers/VerificationController');
 
 const authMiddleware = require('./middlewares/auth');
 
@@ -14,7 +15,10 @@ const routes = express.Router();
 
 
 routes.post('/user', UserController.store);
-routes.post('/authenticate', AuthController.store);
+routes.post('/authenticate', AuthController.show);
+routes.post('/verification', VerificationController.store);
+routes.get('/verification/checkcode', VerificationController.checkCode);
+routes.get('/verification/checkicon', VerificationController.checkIcon);
 
 routes.use(authMiddleware); //As rotas abaixo precisam de token de autenticação
 routes.get('/authenticate', AuthController.show);

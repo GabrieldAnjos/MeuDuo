@@ -4,8 +4,8 @@ import './Login.css';
 import { useDataLogin } from '../context/DataLogin';
 
 import api from '../services/api';
-
-import logo from '../assets/logo.png';
+//Componentes
+import Logo from '../components/Logo';
 
 export default function Login({ history }) {
     const { setAuthentication } = useDataLogin();
@@ -42,7 +42,7 @@ export default function Login({ history }) {
     return (
         <div className="login-container">
             <form>
-                <img src={ logo } alt="MeuDuo"/>
+                <Logo />
                 <input
                     name="username"
                     placeholder="Digite seu nome de Invocador"

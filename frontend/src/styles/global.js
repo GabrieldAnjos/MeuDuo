@@ -21,9 +21,15 @@ export default createGlobalStyle`
     }
 
     :root {
+        --blue: #54ACAE;
         --blueLight: #48ECFF;
         --black: #000000;
+        --grey: #9F9F9F;
+        --greyLight: #DBDBDB;
         --white: #FFFFFF;
+        --gold: #997530;
+        --goldLight: #C8AA6E;
+
 
         --fontSystem: "Acumin Variable Concept", sans-serif;
         --fontUsers: 'Montserrat', sans-serif;

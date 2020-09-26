@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import img from '../../assets/nunuwilump.png';
 
+export const Background = styled.div`
+    height: 100%;
+    background-image: url(${img});
+`;
 
 export const Container = styled.div`
-    background-image: url(${img});
-    background-color:black;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,28 +18,25 @@ export const Container = styled.div`
 export const Header = styled.header`
     height: 200px;
     width: 100%;
+    
     display: flex;  
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;   
 `;
 
-export const ArrowBack = styled.img`
-    position: fixed;
-    left: 160px;
-`;
+
 
 export const Title = styled.h1`
-    width: 230px;
-    height: 60px;
-    color: #FFFFFF;
-    opacity: 1;
-    border-bottom: 6px solid #ddd;
+    color: var(--white);
+    border-bottom: 5px solid;
     border-bottom-color: var(--blueLight);
+    
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
     
     font-family: var(--fontSystem);
-    font-size: 43px;
+    font-size: 40px;
     font-style: normal;
     letter-spacing: 0.9px;
     font-weight: 100;

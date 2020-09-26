@@ -1,9 +1,36 @@
 .champ-conteiner {
-    width: 400px;
-    height: 200px;
-    padding: 5px;
+    width: 522px;
+    height: 145px;
     overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid white;
+    border-radius: 4px; 
+
+    
 }
+
+
+::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(161, 161, 161, 0.3);
+    border-radius: 5px;
+    margin: 2px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255, 0.5);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #EAA848;
+  }
 
 .champ-conteiner li {
     list-style-type: none;

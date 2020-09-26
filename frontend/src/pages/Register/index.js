@@ -1,15 +1,15 @@
 
-import { Container, Title, Header, ArrowBack } from './styles.js';
+import { Background, Container, Title } from './styles.js';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 //Serviços
 import api from '../../services/api';
 //Componentes
-import FormUser from "../../components/FormUser";
+import FormUser from '../../components/FormUser';
+import Header from '../../components/Header';
+
 //imagens
-import logo from '../../assets/logo.png';
-import arrowBack from '../../assets/arrowBack.png';
+
 export default function Register({ history }) {
 
     const [form] = useState({
@@ -19,8 +19,8 @@ export default function Register({ history }) {
         email: '',
         userInstagram: '',
         age: '',
-        route: 'Todas as Rotas',
-        route2: 'Todas as Rotas',
+        route: 'Nenhuma',
+        route2: 'Nenhuma',
         champion: '',
         champion2: '',
         champion3: ''
@@ -45,16 +45,14 @@ export default function Register({ history }) {
     }
 
     return (
-        <Container>
-            <Header>
-                <Link to='/'>
-                    <ArrowBack src={arrowBack} alt="Voltar" />
-                </Link>
-                <img src={logo} alt="MeuDuo" />
-            </Header>
-            <Title>Registre-se</Title>
-            <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
-        </Container>
+        <Background>
+            <Container>
+                <Header arrowBack />
+               
+                <Title>Registre-se</Title>
+                <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
+            </Container>
+        </Background>
 
     );
 }

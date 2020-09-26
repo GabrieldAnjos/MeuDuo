@@ -7,7 +7,7 @@ import { useDataLogin } from '../context/DataLogin';
 //Componentes
 import FormUser from '../components/FormUser';
 //Imagens
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 
 export default function EditProfile({ history, match }) {
     const { authentication } = useDataLogin();
@@ -18,8 +18,8 @@ export default function EditProfile({ history, match }) {
         email: '',
         userInstagram: '',
         age: '',
-        route: 'Todas as Rotas',
-        route2: 'Todas as Rotas',
+        route: 'Nenhuma',
+        route2: 'Nenhuma',
         champion: '',
         champion2: '',
         champion3: ''

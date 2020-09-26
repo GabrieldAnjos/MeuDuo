@@ -1,10 +1,8 @@
-.route-container nav {
-    margin: 10px 10px;
-    background:gray;    
-    width: 280px;
-    height: 150px; 
-    border-radius: 220px 220px 7px 7px;
-    transition: all 1.5s ease-in-out;
+.route-container nav {  
+    background-image: url('../assets/backRouter.png');
+    height: 220px;
+    width: 230px;
+    background-position: center;
 
 }
 
@@ -12,237 +10,306 @@
     display: none;
 }
 
-.route-container #allRoutes {
+.route-container #noneRoutes {
     cursor: pointer;
-    width: 75px;
-    height: 75px;
     position: absolute;
-    margin: 75px 105px; 
+   
+    margin: 77px; 
     z-index: 1;  
 }
 
-.route-container #allRoutes img {
-    width: 100%;
-    transition: all 1.5s ease-in-out;
+.route-container #noneRoutes img {
     border-radius: 50%;
+    
+    transform: rotate(180deg);
+    transition: all 1s;
 }
 
 .route-container .link {
     cursor: pointer;
     position: absolute;
-    margin:  95px 117.5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin:  100px;
     transition: all .5s ease-out;
 }
 
-.route-container #checkroute:checked ~ nav {
-   color: black;   
-   background-color: blue;
-}
-
-.route-container #checkroute:checked ~ #allRoutes img {
-    transform: rotate(180deg);
+.route-container #checkroute:checked ~ #noneRoutes img {
+    transform: rotate(0deg);
+    background-image: radial-gradient(circle, var(--blueLight) 50%, transparent 70%);
+   
 }
 
 .route-container #checkroute:checked ~ #top1 #link_01 {
-    transform: translatex(-95px);
-    transition-delay: 0.8s;
+    transform: translatex(-80px);
+    transition-delay: .4s;
 }
 
 .route-container #checkroute:checked ~ #jungle1 #link_02 {
-    transform: translate(-65px,-65px);
-    transition-delay: .8s;
+    transform: translate(-60px,-60px);
+    transition-delay: .4s;
 }
 
 .route-container #checkroute:checked ~ #mid1 #link_03 {
-    transform: translateY(-90px);
-    transition-delay: .8s;
+    transform: translateY(-80px);
+    transition-delay: .4s;
 }
 
 .route-container #checkroute:checked ~ #bot1 #link_04 {
-    transform: translate(65px,-65px);
-    transition-delay: .8s;
+    transform: translate(60px,-60px);
+    transition-delay: .4s;
 }
 
 .route-container #checkroute:checked ~ #suporte1 #link_05 {
-    transform: translateX(95px);
-    transition-delay: .8s;
+    transform: translateX(80px);
+    transition-delay: .4s;
 }
 
+.route-container #checkroute:checked ~ #allRoutes1 #link_06 {
+    transform: translateY(75px);
+    transition-delay: .4s;
+}
+
+
 .route-container #toproute:checked ~ #top1 #link_01 {
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
     
-    width: 75px;
-    height: 75px;
-    margin: 80px 102.5px; 
     transition-delay: .1s;
 }
 
 .route-container #jungleroute:checked ~ #jungle1 #link_02 {
-    width: 75px;
-    height: 75px;
-    margin: 87.5px 102.5px; 
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
     transition-delay: .1s;
 }
 
 .route-container #midroute:checked ~ #mid1 #link_03 {
-    width: 75px;
-    height: 75px;
-    margin: 87.5px 102.5px; 
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
     transition-delay: .1s;
 }
 
 .route-container #botroute:checked ~ #bot1 #link_04 {
-    width: 75px;
-    height: 75px;
-    margin: 87.5px 102.5px; 
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
     transition-delay: .1s;
 }
 
 .route-container #suporteroute:checked ~ #suporte1 #link_05 {
-    width: 75px;
-    height: 75px;
-    margin: 77.5px 102.5px; 
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    transition-delay: .1s;
     
 }
 
+.route-container #allRoutesroute:checked ~ #allRoutes1 #link_06 {
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    transition-delay: .1s;
+    
+}
+
+
 .route-container #checkroute:not(:checked) ~ #top1 #link_01 {
     position: absolute;
-    margin:  95px 110px;
-    width: 40px;
-    height: 40px;
+    margin:  100px;
 }
 
 .route-container #checkroute:not(:checked) ~ #jungle1 #link_02 {
     position: absolute;
-    margin:  95px 110px;
-    width: 50px;
-    height: 50px;
+    margin:  100px;  
 }
 
 .route-container #checkroute:not(:checked) ~ #mid1 #link_03 {
     position: absolute;
-    margin:  95px 110px;
-    width: 50px;
-    height: 50px;
+    margin:  100px; 
 }
 
 .route-container #checkroute:not(:checked) ~ #bot1 #link_04 {
     position: absolute;
-    margin:  95px 110px;
-    width: 50px;
-    height: 50px;
+    margin:  100px;  
 }
 
 .route-container #checkroute:not(:checked) ~ #suporte1 #link_05 {
     position: absolute;
-    margin:  95px 110px;
-    width: 50px;
-    height: 50px;
+    margin:  100px;   
 }
 
-.route-container #checkroute2:checked ~ nav {
-    color: black;   
-    background-color: blue;
- }
- 
- .route-container #checkroute2:checked ~ #allRoutes img {
-     transform: rotate(180deg);
- }
+.route-container #checkroute:not(:checked) ~ #allRoutes1 #link_06 {
+    position: absolute;
+    margin:  100px;  
+}
+
+.route-container #checkroute2:checked ~ #noneRoutes img {
+    transform: rotate(0deg);
+    background-image: radial-gradient(circle, var(--blueLight) 50%, transparent 70%);
+   
+}
  
  .route-container #checkroute2:checked ~ #top1 #link_01 {
-     transform: translatex(-95px);
-     transition-delay: 0.8s;
+     transform: translatex(-80px);
+     transition-delay: .4s;
  }
  
  .route-container #checkroute2:checked ~ #jungle1 #link_02 {
-     transform: translate(-65px,-65px);
-     transition-delay: .8s;
+     transform: translate(-60px,-60px);
+     transition-delay: .4s;
  }
  
  .route-container #checkroute2:checked ~ #mid1 #link_03 {
-     transform: translateY(-90px);
-     transition-delay: .8s;
+     transform: translateY(-80px);
+     transition-delay: .4s;
  }
  
  .route-container #checkroute2:checked ~ #bot1 #link_04 {
-     transform: translate(65px,-65px);
-     transition-delay: .8s;
+     transform: translate(60px,-60px);
+     transition-delay: .4s;
  }
  
  .route-container #checkroute2:checked ~ #suporte1 #link_05 {
-     transform: translateX(95px);
-     transition-delay: .8s;
+     transform: translateX(80px);
+     transition-delay: .4s;
  }
+
+ .route-container #checkroute2:checked ~ #allRoutes1 #link_06 {
+    transform: translateY(75px);
+    transition-delay: .4s;
+}
  
  .route-container #toproute2:checked ~ #top1 #link_01 {
-     
-     width: 75px;
-     height: 75px;
-     margin: 80px 102.5px; 
-     transition-delay: .1s;
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
  }
  
  .route-container #jungleroute2:checked ~ #jungle1 #link_02 {
-     width: 75px;
-     height: 75px;
-     margin: 87.5px 102.5px; 
-     transition-delay: .1s;
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
  }
  
  .route-container #midroute2:checked ~ #mid1 #link_03 {
-     width: 75px;
-     height: 75px;
-     margin: 87.5px 102.5px; 
-     transition-delay: .1s;
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
  }
  
  .route-container #botroute2:checked ~ #bot1 #link_04 {
-     width: 75px;
-     height: 75px;
-     margin: 87.5px 102.5px; 
-     transition-delay: .1s;
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
  }
  
  .route-container #suporteroute2:checked ~ #suporte1 #link_05 {
-     width: 75px;
-     height: 75px;
-     margin: 77.5px 102.5px; 
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
      
  }
+
+ .route-container #allRoutesroute2:checked ~ #allRoutes1 #link_06 {
+    transform: translate(-7.5px, -7.5px);
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 44px;
+    width: 44px;
+    padding: 4px;
+    
+    transition-delay: .1s;
+    
+}
  
  .route-container #checkroute2:not(:checked) ~ #top1 #link_01 {
      position: absolute;
-     margin:  95px 110px;
-     width: 40px;
-     height: 40px;
+     margin:  100px;
  }
  
  .route-container #checkroute2:not(:checked) ~ #jungle1 #link_02 {
      position: absolute;
-     margin:  95px 110px;
-     width: 50px;
-     height: 50px;
+     margin:  100px;
  }
  
  .route-container #checkroute2:not(:checked) ~ #mid1 #link_03 {
      position: absolute;
-     margin:  95px 110px;
-     width: 50px;
-     height: 50px;
+     margin:  100px;
  }
  
  .route-container #checkroute2:not(:checked) ~ #bot1 #link_04 {
      position: absolute;
-     margin:  95px 110px;
-     width: 50px;
-     height: 50px;
+     margin:  100px;
  }
  
  .route-container #checkroute2:not(:checked) ~ #suporte1 #link_05 {
      position: absolute;
-     margin:  95px 110px;
-     width: 50px;
-     height: 50px;
+     margin:  100px;
  }
+
+ .route-container #checkroute2:not(:checked) ~ #allRoutes1 #link_06 {
+    position: absolute;
+    margin:  100px;
+}

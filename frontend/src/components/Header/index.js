@@ -3,8 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 //Componentes
 import Logo from '../Logo';
-//Imagens
-import arrow from '../../assets/arrowBack.png';
+
 
 export default function Header({ arrowBack }) {
     console.log(arrowBack);
@@ -12,7 +11,7 @@ export default function Header({ arrowBack }) {
         <Container>
             {arrowBack && (
                 <Link to='/'>
-                    <Arrow src={arrow} alt="Voltar" />
+                    <Arrow alt="Voltar" title="Voltar" />
                 </Link>
             ) 
             }

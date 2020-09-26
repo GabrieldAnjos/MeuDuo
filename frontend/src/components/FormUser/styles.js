@@ -69,7 +69,7 @@ export const Button = styled.button`
     transition: background 0.5s;
 
     &:hover {
-        background: var(--blueLight);
+        background: var(--blue);
   }
 `;
 

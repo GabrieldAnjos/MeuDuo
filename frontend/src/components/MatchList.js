@@ -39,12 +39,13 @@ const ContainerBusca = styled.div`
 `
 
 const List = styled.div`
-    width: 90%;
-    margin: 5%;
+    width: 100%;
+    margin-top: 5px;
     height: 50vh;
     overflow-y: scroll;
     border-bottom: 2px solid gray;
-    li{
+    li{ 
+        border-radius: 10px;
         cursor: pointer;
         &:hover{
             background: #FFF1;

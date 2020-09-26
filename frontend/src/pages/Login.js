@@ -19,15 +19,15 @@ import AccountCircle from '@material-ui/icons/AccountCircleOutlined'
 import Lock from '@material-ui/icons/LockOutlined'
 
 const ContainerInput = styled.div`
-    background-color : white;
-    border-radius: 5px;
-    height: auto;
-    width: auto;    
-    margin: 15px;
+    background-color: var(--white);
+    border-radius: 10px;
+    height: 60px;
+    width: fit-content;
+    margin: 20px;
     padding: 10px;
 `
 
-const InputSimple = styled.input`
+const InputSimple = styled(Input)`
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: black;

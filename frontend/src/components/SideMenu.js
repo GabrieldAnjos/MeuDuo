@@ -8,7 +8,7 @@ import MatchList from '../components/MatchList'
 
 const Container = styled.div`
     height: 100vh;
-    width: 250px;
+    width: 275px;
     position: fixed;
     right: 0;
     top: 0;
@@ -36,6 +36,7 @@ const Footer = styled.div`
         font-family: 'Montserrat', sans-serif;
         font-size: 0.8em;
         color: white;
+        text-align: initial;
     }
 `
 

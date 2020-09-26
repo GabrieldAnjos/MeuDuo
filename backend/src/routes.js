@@ -15,7 +15,7 @@ const routes = express.Router();
 
 
 routes.post('/user', UserController.store);
-routes.post('/authenticate', AuthController.show);
+routes.post('/authenticate', AuthController.store);
 routes.post('/verification', VerificationController.store);
 routes.get('/verification/checkcode', VerificationController.checkCode);
 routes.get('/verification/checkicon', VerificationController.checkIcon);

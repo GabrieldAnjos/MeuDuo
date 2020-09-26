@@ -117,7 +117,7 @@ export const ChatBox = styled.div`
     position: fixed;
     left: 0;
     bottom: 0;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
 
     ul {
         list-style-position: inside;

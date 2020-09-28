@@ -1,15 +1,17 @@
 import styled from 'styled-components';
-import img from '../../assets/nunuwilump.png';
+import img from '../../assets/Nunu_0.jpg';
 
 export const Background = styled.div`
     height: 100%;
     background-image: url(${img});
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 export const Container = styled.div`
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100% );
+    
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -75,7 +75,7 @@ module.exports = {
             league,
             avatarInstagram: profile_pic_url,
             userInstagram,
-            age
+            age,
 
         })
 
@@ -126,7 +126,7 @@ module.exports = {
             league,
             avatarInstagram: profile_pic_url,
             userInstagram,
-            age
+            age,
         }, {useFindAndModify: false});
 
         return res.json(user);

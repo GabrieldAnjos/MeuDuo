@@ -56,7 +56,8 @@ const UserSchema = new Schema({
             ref: 'Msg'
         }],
         select: false
-    }
+    },
+    bio: String,
 
 }, {
     timestamps: true,

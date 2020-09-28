@@ -42,7 +42,7 @@ export default function Card({ userCard, noBackground }) {
                 <ChampsImg src={championURL(userCard.champion)} alt={userCard.champion} />
                 <ChampsImgMini src={championURL(userCard.champion3)} alt={userCard.champio3} />
             </Champs>
-            <Bio> Eu sou... muito Bom! e Bonito! Mochila já ta aberta, só pular!!</Bio>
+            <Bio>{userCard.bio}</Bio>
 
         </Container>
     );

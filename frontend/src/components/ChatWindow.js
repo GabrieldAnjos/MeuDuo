@@ -163,7 +163,7 @@ const SendWraper = styled.div`
 `
 
 
-export default function ChampionSelector({ token, userId, friend }) {
+export default function ChampionSelector({ token, userId, friend, onClose }) {
     const [msgList, setMsgList] = useState([])
     const [msgText, setMsgText] = useState('')
     //console.log({ token, userId, friend })
@@ -220,7 +220,7 @@ export default function ChampionSelector({ token, userId, friend }) {
                 <PlayerName>
                     {friend.username}
                 </PlayerName>
-                <CloseButton />
+                <CloseButton onClick={() => {onClose(); console.log('TESTE');}}/>
             </Title>
             <TextScroll mode="bottom">
                 <List>

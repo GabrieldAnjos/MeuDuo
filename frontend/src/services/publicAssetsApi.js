@@ -11,6 +11,10 @@ function emblemURL(tierName) {
 }
 
 function championURL(championName) {
+    return `/assets_riot/champion/${championName}.png`
+}
+
+function championLowURL(championName) {
     return `/assets_riot/champion_low/${championName}.png`
 }
 

@@ -1,4 +1,4 @@
-import { Container, Header, InfosWrapper, InfosLol, InfosInstagram, EmblemsRanked, RankImg, RankImgMini, Routes, Champs, ChampsImg, ChampsImgMini, Bio } from './styles.js';
+import { Container, Header, InfosWrapper, InfosLol, InfosInstagram, EmblemsRanked, RankImg, RankImgMini, Routes, Champs, ChampsImg, ChampsImgMini, Bio, ChampBorder, ChampBorderMini } from './styles.js';
 import React from 'react';
 //Serviços
 import { iconURL, emblemURL, routeURL, championURL } from '../../services/publicAssetsApi';
@@ -38,9 +38,16 @@ export default function Card({ userCard, noBackground }) {
             </Routes>
 
             <Champs>
-                <ChampsImgMini src={championURL(userCard.champion2)} alt={userCard.champion2} />
-                <ChampsImg src={championURL(userCard.champion)} alt={userCard.champion} />
-                <ChampsImgMini src={championURL(userCard.champion3)} alt={userCard.champio3} />
+
+                <ChampBorderMini>
+                    <ChampsImg src={championURL(userCard.champion2)} alt={userCard.champion2} />
+                </ChampBorderMini>
+                <ChampBorder>
+                    <ChampsImg src={championURL(userCard.champion)} alt={userCard.champion} />
+                </ChampBorder>
+                <ChampBorderMini>
+                    <ChampsImg src={championURL(userCard.champion3)} alt={userCard.champio3} />
+                </ChampBorderMini>
             </Champs>
             <Bio>{userCard.bio}</Bio>
 

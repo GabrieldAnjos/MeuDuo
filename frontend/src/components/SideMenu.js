@@ -12,7 +12,6 @@ const Container = styled.div`
     position: fixed;
     right: 0;
     top: 0;
-    padding-top: 15px;
     margin: 0px;
     background-image: url("${backgroundSide}");
     background-color: black;
@@ -24,10 +23,10 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+
 `
 
 const Footer = styled.div`
-    flex: 1;
     width:100%;
     padding: 10%;
     p{

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import '../assets/fonts.css';
 
 
@@ -7,47 +7,39 @@ import { useDataLogin } from '../context/DataLogin';
 
 import api from '../services/api';
 
+import Logo from '../components/Logo';
+
 import background from '../assets/Nunu_0.jpg';
 
-import login_acc from '../assets/login_account.svg';
-import login_pass from '../assets/login_pass.svg';
-
-import InputLabel from '@material-ui/core/InputLabel'
-import Input from '@material-ui/core/Input'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import TextField from '@material-ui/core/TextField'
 import AccountCircle from '@material-ui/icons/AccountCircleOutlined'
 import Lock from '@material-ui/icons/LockOutlined'
+
 
 const ContainerInput = styled.div`
     background-color: var(--white);
     border-radius: 10px;
-    height: 60px;
+    height: fit-content;
     width: fit-content;
-    margin: 20px;
-    padding: 10px;
-`
+    margin: 15px;
+    padding: 8px;
 
-const InputSimple = styled(Input)`
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    color: black;
-    background-color: transparent; 
-    height: auto;
-    width: 50vh;
-    padding: 10px 10px 10px 20px;
-    border: 0px;
-    
-    &::placeholder{
-        color: #AAA;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+    svg{
+        margin:5px;
     }
-`;
 
-const LoginIcon = styled.img`
-    height: 36px;
-    width: 36px;    
-    padding: 5px;
-    align-self:center;
-    color:white;
+    input{
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        background-color: transparent;
+        height: 40px;
+        width: 200px;
+        padding: 5px;
+    }
 `
 
 const ButtonLogin = styled.button`
@@ -56,19 +48,22 @@ const ButtonLogin = styled.button`
     font-size: 15px;
     font-kerning: auto;
     color: white;
-    background-color: #d7553e;
+    background-color: gray;
     box-shadow: 0px 1px 2px #0008;
     border-radius: 5px;
     border: 0px;
     padding: 10px 20px;
     margin: 15px;
-    transition:0.5s;
+    transition: 0.5s;
     &:hover{
         box-shadow: 0px 1px 5px #0008;
+        background-color: #d7553e;
     }
 `
 
-const ContainerForm = styled.div`
+const FormWraper = styled.div`
+    /* background-color: #DDD; */
+    border-radius:10px;
     padding: 10px;
     position: fixed;
     top: 30%;
@@ -85,7 +80,7 @@ const Underline = styled.div`
 `
 
 const UnderlineBar = styled.div`
-    background: #48ECFF;
+    background: #7fe0f2;    
     width: 0px;
     height: 100%;
     margin: 0px;
@@ -107,7 +102,7 @@ const ContainerLink = styled.div`
         }
     }
     a{
-        color: #DDD;
+        color: #ddd;
         font-family: 'Montserrat', sans-serif;
         font-size: 20px;
     }
@@ -124,16 +119,26 @@ const BackFrame = styled.img`
 `
 
 const BackShadow = styled.div`
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 60% );
+    background-image: linear-gradient(to right, #00000F 20%, #0000 40% );   
     height: 100%;
     width: 100%;
-    padding: 0px;
     overflow: hidden;
 `
 
-const FormContainer = styled.form`
+const LogoContainer = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+`
+
+const Form = styled.form`
     border-radius: 5px;
-    padding:10px;
+    /* padding:10px; */
 `
 
 export default function Login({ history }) {
@@ -164,10 +169,13 @@ export default function Login({ history }) {
 
     return (
         <>
+            <LogoContainer>
+                <Logo/>
+            </LogoContainer>
             <BackShadow>
                 <BackFrame src={background} />
             </BackShadow>
-            <ContainerForm>
+            <FormWraper>
                 <ContainerLink>
                     <a>Login</a>
                     <Underline>
@@ -182,52 +190,30 @@ export default function Login({ history }) {
                     </Underline>
                 </ContainerLink>
 
-                <FormContainer>
+                <Form>
                     <ContainerInput>
-                        <InputLabel htmlFor="input-user">Username</InputLabel>
-                        <Input
+                        <AccountCircle />
+                        <TextField
                             id="input-user"
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <AccountCircle />
-                                </InputAdornment>
-                            }
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <InputLabel htmlFor="input-pass">Password</InputLabel>
-                        <Input
-                            id="input-pass"
-                            label="teste"
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <Lock />
-                                </InputAdornment>
-                            }
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <LoginIcon src={login_acc} alt="Invocador" />
-                        <InputSimple
-                            name="username"
-                            placeholder="Login"
+                            label="username"
                             value={form.username}
                             onChange={e => setForm({ ...form, username: e.target.value })}
-                        />
+                            variant="outlined" />
                     </ContainerInput>
+
                     <ContainerInput>
-                        <LoginIcon src={login_pass} alt="Senha" />
-                        <InputSimple
-                            name="password"
+                        <Lock />
+                        <TextField id="input-pass"
+                            label="password"
                             type="password"
-                            placeholder="Senha"
                             value={form.password}
                             onChange={e => setForm({ ...form, password: e.target.value })}
-                        />
+                            variant="outlined" />
                     </ContainerInput>
+
                     <ButtonLogin onClick={handleClickLogar} >ENTRAR</ButtonLogin>
-                </FormContainer>
-            </ContainerForm>
+                </Form>
+            </FormWraper>
         </>
     );
 }

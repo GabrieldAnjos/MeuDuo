@@ -124,20 +124,34 @@ export const Champs = styled.div`
 `;
 
 export const ChampsImg = styled.img`
+    height: 110%;
+    width: 110%;
+    margin: -5%;
+`
+
+export const ChampBorder = styled.div`
+
     height: 85px;
     width: 85px;
+    overflow: hidden;
     border-radius: 50%;
     border: 2px solid var(--gold);
+`
 
-`;
+export const ChampBorderMini = styled.div`
+    height: 65px;
+    width: 65px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    align-self: flex-end;
+`
 
 export const ChampsImgMini = styled(ChampsImg)`
     height: 65px;
     width: 65px;
-    border: 2px solid var(--blue);
 
-    align-self: flex-end;
-`;
+`
 
 export const Bio = styled.h3`
     width: 300px;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Notification from '@material-ui/icons/NotificationsOutlined'
 import ExitToApp from '@material-ui/icons/ExitToAppOutlined'
 
@@ -17,14 +17,18 @@ const Container = styled.div`
     flex-direction: row;
     align-content: flex-start;
     justify-content: space-around;
+    margin: 10px;
     color: white;
-    a{
-        height: fit-content;
-    }
     
 `
+
 const Exit = styled(ExitToApp)`
     color: white;
+`
+
+const Profile = styled.div`
+    width: 150px;
+    height: 150px;
 `
 
 export default function BoxProfile({ history }) {
@@ -53,9 +57,11 @@ export default function BoxProfile({ history }) {
     return (
         <Container>
             <Notification />
-            <Link to="/profile">
-                <BigProfile profileIconId={user.profileIconId} username={user.username}></BigProfile>
-            </Link>
+            <Profile>
+                <Link to="/profile">
+                    <BigProfile profileIconId={user.profileIconId} username={user.username}></BigProfile>
+                </Link>
+            </Profile>
             <Link to="/">
                 <Exit/>
             </Link>

@@ -7,10 +7,12 @@ const ProfileWraper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
     padding: 5px;
     img{
-        height: 10vw;
-        width: 10vw;
+        height: 100%;
+        width: 100%;
         border-radius: 50%;
         border: 2px solid #CF833A;
         margin: 5px;

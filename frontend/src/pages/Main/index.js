@@ -134,6 +134,7 @@ export default function Main() {
     function handleChat(idFriend) {
 
         const chatOpenStatus = matches.map(m => {
+            console.log(m.chatIsOpen);
             return m._id === idFriend ? { ...m, chatIsOpen: !m.chatIsOpen } : m
         });
         setMatches(chatOpenStatus);
@@ -206,7 +207,11 @@ export default function Main() {
                         (<ul>
                             {matches.filter(m => m.chatIsOpen === true).map(m => (
                                 <li key={m._id}>
-                                    <ChatWindow token={authentication.token} userId={authentication.idUser} friend={m}></ChatWindow>
+                                    <ChatWindow
+                                    token={authentication.token}
+                                    userId={authentication.idUser}
+                                    friend={m}
+                                    onClose={() => {handleChat(m.id); console.log(m.username)} }></ChatWindow>
                                 </li>
                             ))}
                         </ul>

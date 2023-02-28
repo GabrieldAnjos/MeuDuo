@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 import './EditProfile.css';
 //Serviços
 import api from '../services/api';
@@ -9,7 +10,9 @@ import FormUser from '../components/FormUser';
 //Imagens
 import logo from '../assets/logo.svg';
 
-export default function EditProfile({ history, match }) {
+export default function EditProfile({ match }) {
+    const navigate = useNavigate();
+
     const { authentication } = useDataLogin();
     const [form, setForm] = useState({
         username: '',
@@ -59,7 +62,7 @@ export default function EditProfile({ history, match }) {
                 }
             });
 
-        history.push('/profile');
+        navigate('/profile');
     }
 
     return (

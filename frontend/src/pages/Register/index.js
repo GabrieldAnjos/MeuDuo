@@ -1,58 +1,59 @@
-
-import { Background, Container, Title } from './styles.js';
-import React, { useState } from 'react';
+import { Background, Container, Title } from "./styles.js";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 //Serviços
-import api from '../../services/api';
+import api from "../../services/api";
 //Componentes
-import FormUser from '../../components/FormUser';
-import Header from '../../components/Header';
+import FormUser from "../../components/FormUser";
+import Header from "../../components/Header";
 
 //imagens
 
-export default function Register({ history }) {
+export default function Register() {
 
-    const [form] = useState({
-        username: '',
-        password: '',
-        password2: '',
-        email: '',
-        userInstagram: '',
-        age: '',
-        route: 'Nenhuma',
-        route2: 'Nenhuma',
-        champion: '',
-        champion2: '',
-        champion3: ''
+  const navigate = useNavigate();
+
+  const [form] = useState({
+    username: "",
+    password: "",
+    password2: "",
+    email: "",
+    userInstagram: "",
+    age: "",
+    route: "Nenhuma",
+    route2: "Nenhuma",
+    champion: "",
+    champion2: "",
+    champion3: "",
+  });
+
+  async function handleSubmit(formStateChild) {
+    await api.post("/user", {
+      username: formStateChild.username,
+      summonerName: formStateChild.username,
+      password: formStateChild.password,
+      email: formStateChild.email,
+      instagram: formStateChild.userInstagram,
+      age: formStateChild.age,
+      route: formStateChild.route,
+      route2: formStateChild.route2,
+      champion: formStateChild.champion,
+      champion2: formStateChild.champion2,
+      champion3: formStateChild.champion3,
     });
+    
+    navigate("/");
+  }
 
-    async function handleSubmit(formStateChild) {
-        await api.post('/user', {
-            username: formStateChild.username,
-            summonerName: formStateChild.username,
-            password: formStateChild.password,
-            email: formStateChild.email,
-            instagram: formStateChild.userInstagram,
-            age: formStateChild.age,
-            route: formStateChild.route,
-            route2: formStateChild.route2,
-            champion: formStateChild.champion,
-            champion2: formStateChild.champion2,
-            champion3: formStateChild.champion3
+  return (
+    <Background>
+      <Container>
+        <Header arrowBack />
 
-        });
-        history.push('/');
-    }
-
-    return (
-        <Background>
-            <Container>
-                <Header arrowBack />
-               
-                <Title>Registre-se</Title>
-                <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
-            </Container>
-        </Background>
-
-    );
+        <Title>Registre-se</Title>
+        <FormUser formStateParent={form} onSave={handleSubmit}></FormUser>
+      </Container>
+    </Background>
+  );
 }

@@ -1,6 +1,6 @@
 import './Profile.css';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //Serviços
 import { useDataLogin } from '../context/DataLogin';
 import api from '../services/api';
@@ -9,7 +9,9 @@ import Card from '../components/Card';
 //Imagens
 import logo from '../assets/logo.svg';
 
-export default function Profile({ history }) {
+export default function Profile() {
+    const navigate = useNavigate();
+
     const { authentication } = useDataLogin();
 
     const [users, setUsers] = useState({
@@ -63,7 +65,7 @@ export default function Profile({ history }) {
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
             <Card userCard={users} ></Card>
-            <button onClick={() => history.push('/editProfile')} className="editar">Editar Perfil</button>
+            <button onClick={() => navigate('/editProfile')} className="editar">Editar Perfil</button>
 
         </div>
     )
